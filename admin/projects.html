@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects Management | Portfolio Admin</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-body">
+  <div class="admin-wrapper">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-badge">KS</div>
+        <div class="brand-info">
+          <h6 class="brand-title">Krish Savaliya</h6>
+          <p class="brand-subtitle">Portfolio CMS</p>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-section-title">Overview</div>
+        <a href="index.html" class="sidebar-link" data-page="dashboard">
+          <i class="bi bi-grid-fill"></i>
+          <span>Dashboard</span>
+        </a>
+        
+        <div class="nav-section-title">Content Sections</div>
+        <a href="profile.html" class="sidebar-link" data-page="profile">
+          <i class="bi bi-person-bounding-box"></i>
+          <span>Hero &amp; About</span>
+        </a>
+        <a href="skills.html" class="sidebar-link" data-page="skills">
+          <i class="bi bi-tools"></i>
+          <span>Skills &amp; Tech</span>
+        </a>
+        <a href="projects.html" class="sidebar-link active" data-page="projects">
+          <i class="bi bi-folder-fill"></i>
+          <span>Projects</span>
+        </a>
+        <a href="experience.html" class="sidebar-link" data-page="experience">
+          <i class="bi bi-briefcase-fill"></i>
+          <span>Experience</span>
+        </a>
+        <a href="certifications.html" class="sidebar-link" data-page="certifications">
+          <i class="bi bi-patch-check-fill"></i>
+          <span>Certifications</span>
+        </a>
+        <a href="testimonials.html" class="sidebar-link" data-page="testimonials">
+          <i class="bi bi-chat-quote-fill"></i>
+          <span>Testimonials</span>
+        </a>
+
+        <div class="nav-section-title">Communication &amp; Files</div>
+        <a href="messages.html" class="sidebar-link" data-page="messages">
+          <i class="bi bi-envelope-fill"></i>
+          <span>Messages</span>
+          <span class="badge bg-danger rounded-pill ms-auto badge-messages-count d-none">0</span>
+        </a>
+        <a href="resume.html" class="sidebar-link" data-page="resume">
+          <i class="bi bi-file-earmark-pdf-fill"></i>
+          <span>Resume</span>
+        </a>
+
+        <div class="nav-section-title">Configuration</div>
+        <a href="settings.html" class="sidebar-link" data-page="settings">
+          <i class="bi bi-gear-fill"></i>
+          <span>Site Settings</span>
+        </a>
+      </div>
+      <div class="sidebar-footer">
+        <a href="../index.html" target="_blank" class="btn btn-outline-light w-100 btn-sm d-flex align-items-center justify-content-center gap-2 py-2">
+          <i class="bi bi-box-arrow-up-right"></i>
+          <span>View Live Site</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div class="topbar-left">
+          <button class="btn btn-icon d-lg-none" id="sidebarToggleBtn"><i class="bi bi-list fs-5"></i></button>
+          <h1 class="topbar-title">Featured Projects</h1>
+        </div>
+        <div class="topbar-right">
+          <a href="messages.html" class="btn-icon text-decoration-none" title="Messages">
+            <i class="bi bi-bell"></i>
+            <span class="badge-dot-notification d-none" id="topbarMessageDot"></span>
+          </a>
+          <div class="dropdown">
+            <a href="#" class="user-avatar-pill dropdown-toggle text-decoration-none" data-bs-toggle="dropdown">
+              <div class="user-avatar-img">KS</div>
+              <span class="user-avatar-name" id="adminUserName">Krish Savaliya</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+              <li><a class="dropdown-item py-2 small" href="settings.html"><i class="bi bi-gear me-2"></i> Settings</a></li>
+              <li><a class="dropdown-item py-2 small" href="../index.html" target="_blank"><i class="bi bi-box-arrow-up-right me-2"></i> View Live Site</a></li>
+              <li><hr class="dropdown-divider my-1"></li>
+              <li><a class="dropdown-item py-2 small text-danger" href="#" id="adminLogoutBtn"><i class="bi bi-box-arrow-right me-2"></i> Sign Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <!-- Action Header -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+          <div>
+            <h4 class="fw-bold mb-1">Portfolio Project Showcase</h4>
+            <p class="text-muted small mb-0">Manage projects displayed on your portfolio. Order and status are customizable.</p>
+          </div>
+          <button class="btn btn-admin-primary d-inline-flex align-items-center gap-2" id="openAddProjectModalBtn">
+            <i class="bi bi-plus-circle"></i>
+            <span>Add New Project</span>
+          </button>
+        </div>
+
+        <!-- Filter & Search Bar -->
+        <div class="card-custom p-3 mb-4">
+          <div class="row g-2 align-items-center">
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-search"></i></span>
+                <input type="text" class="form-control border-start-0 ps-0" id="projectSearchInput" placeholder="Search by title, description or technology...">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <select class="form-select" id="statusFilterSelect">
+                <option value="all">All Statuses</option>
+                <option value="Completed">Completed</option>
+                <option value="Ongoing">Ongoing</option>
+              </select>
+            </div>
+            <div class="col-md-3 text-md-end text-muted small">
+              Showing <span id="projectCountLabel" class="fw-bold text-dark">0</span> projects
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects Table -->
+        <div class="card-custom">
+          <div class="card-body-custom p-0">
+            <div class="table-responsive">
+              <table class="table table-admin mb-0">
+                <thead>
+                  <tr>
+                    <th style="width: 50px;">#</th>
+                    <th>Project</th>
+                    <th>Tech Stack</th>
+                    <th>Status</th>
+                    <th>Links</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="projectsTableBody">
+                  <!-- Rendered via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add/Edit Project Modal -->
+  <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="projectModalTitle">Add Project</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="projectForm">
+          <input type="hidden" id="projectIdInput">
+          <div class="modal-body">
+            <div class="row g-3">
+              <div class="col-md-8">
+                <label for="projectTitleInput" class="form-label">Project Title <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="projectTitleInput" placeholder="e.g. HealthGuard AI" required>
+              </div>
+              <div class="col-md-4">
+                <label for="projectStatusSelect" class="form-label">Status</label>
+                <select class="form-select" id="projectStatusSelect">
+                  <option value="Completed">Completed</option>
+                  <option value="Ongoing">Ongoing</option>
+                </select>
+              </div>
+
+              <div class="col-md-8">
+                <label for="projectImageInput" class="form-label">Project Image Path or URL</label>
+                <input type="text" class="form-control" id="projectImageInput" placeholder="image.jpg or https://...">
+                <small class="text-muted">Enter path (e.g. <code>image.jpg</code>) or a direct web image link.</small>
+              </div>
+              <div class="col-md-4">
+                <label for="projectOrderInput" class="form-label">Display Order</label>
+                <input type="number" class="form-control" id="projectOrderInput" value="1" min="1">
+              </div>
+
+              <div class="col-12">
+                <label for="projectShortDescInput" class="form-label">Short Summary</label>
+                <input type="text" class="form-control" id="projectShortDescInput" placeholder="Brief one-line overview...">
+              </div>
+
+              <div class="col-12">
+                <label for="projectDescInput" class="form-label">Full Description <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="projectDescInput" rows="4" placeholder="Detailed explanation of features, architecture, and outcomes..." required></textarea>
+              </div>
+
+              <div class="col-12">
+                <label for="projectTechInput" class="form-label">Technologies (Comma separated)</label>
+                <input type="text" class="form-control" id="projectTechInput" placeholder="React, TypeScript, Node.js, Tailwind CSS">
+              </div>
+
+              <div class="col-md-6">
+                <label for="projectGithubInput" class="form-label">GitHub Repository Link</label>
+                <input type="url" class="form-control" id="projectGithubInput" placeholder="https://github.com/Krish130910/...">
+              </div>
+              <div class="col-md-6">
+                <label for="projectLiveInput" class="form-label">Live Demo / Action Link</label>
+                <input type="text" class="form-control" id="projectLiveInput" placeholder="#contact or https://...">
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-admin-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-admin-primary">Save Project</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/portfolio-data.js"></script>
+  <script src="../assets/js/portfolio-store.js"></script>
+  <script src="../assets/js/admin.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      AdminUI.init("projects");
+
+      const tbody = document.getElementById("projectsTableBody");
+      const projectModalEl = document.getElementById("projectModal");
+      const projectModal = new bootstrap.Modal(projectModalEl);
+      const projectForm = document.getElementById("projectForm");
+      const countLabel = document.getElementById("projectCountLabel");
+
+      const idInput = document.getElementById("projectIdInput");
+      const titleInput = document.getElementById("projectTitleInput");
+      const statusSelect = document.getElementById("projectStatusSelect");
+      const imageInput = document.getElementById("projectImageInput");
+      const orderInput = document.getElementById("projectOrderInput");
+      const shortDescInput = document.getElementById("projectShortDescInput");
+      const descInput = document.getElementById("projectDescInput");
+      const techInput = document.getElementById("projectTechInput");
+      const githubInput = document.getElementById("projectGithubInput");
+      const liveInput = document.getElementById("projectLiveInput");
+
+      const searchInput = document.getElementById("projectSearchInput");
+      const filterSelect = document.getElementById("statusFilterSelect");
+
+      function renderProjects() {
+        const query = searchInput.value.toLowerCase().trim();
+        const statusFilter = filterSelect.value;
+        let projects = PortfolioStore.getProjects();
+
+        if (statusFilter !== "all") {
+          projects = projects.filter(p => p.status === statusFilter);
+        }
+
+        if (query) {
+          projects = projects.filter(p => {
+            const matchTitle = (p.title || "").toLowerCase().includes(query);
+            const matchDesc = (p.description || "").toLowerCase().includes(query);
+            const matchTech = (p.tech || []).some(t => t.toLowerCase().includes(query));
+            return matchTitle || matchDesc || matchTech;
+          });
+        }
+
+        countLabel.textContent = projects.length;
+
+        if (projects.length === 0) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="6" class="text-center py-5 text-muted">
+                <i class="bi bi-folder-x fs-1 d-block mb-2"></i>
+                No projects matched your criteria.
+              </td>
+            </tr>
+          `;
+          return;
+        }
+
+        tbody.innerHTML = projects.map(p => {
+          const statusBadge = p.status === "Completed"
+            ? '<span class="badge-status badge-status-completed">Completed</span>'
+            : '<span class="badge-status badge-status-ongoing">Ongoing</span>';
+
+          const techBadges = (p.tech || []).map(t => 
+            `<span class="badge bg-light text-dark border me-1">${t}</span>`
+          ).join("");
+
+          const githubLink = p.github 
+            ? `<a href="${p.github}" target="_blank" class="btn btn-sm btn-outline-secondary py-0 px-2" title="GitHub"><i class="bi bi-github"></i></a>`
+            : '';
+
+          const liveLink = p.link
+            ? `<a href="${p.link}" target="_blank" class="btn btn-sm btn-outline-primary py-0 px-2" title="Live/Demo"><i class="bi bi-box-arrow-up-right"></i></a>`
+            : '';
+
+          return `
+            <tr>
+              <td class="text-muted small fw-bold">${p.order || 1}</td>
+              <td>
+                <div class="d-flex align-items-center gap-3">
+                  <div class="rounded-2 bg-light border d-flex align-items-center justify-content-center text-muted overflow-hidden flex-shrink-0" style="width: 50px; height: 50px;">
+                    <img src="../${p.image || 'image.jpg'}" alt="${p.title}" class="w-100 h-100 object-fit-cover" onerror="this.src='../image.jpg'">
+                  </div>
+                  <div>
+                    <div class="fw-bold text-dark">${p.title}</div>
+                    <small class="text-muted text-truncate d-block" style="max-width: 280px;">${p.shortDesc || p.description || ''}</small>
+                  </div>
+                </div>
+              </td>
+              <td><div class="d-flex flex-wrap gap-1" style="max-width: 220px;">${techBadges}</div></td>
+              <td>${statusBadge}</td>
+              <td>
+                <div class="d-flex gap-1">
+                  ${githubLink}
+                  ${liveLink}
+                </div>
+              </td>
+              <td class="text-end">
+                <div class="btn-group btn-group-sm">
+                  <button type="button" class="btn btn-outline-secondary edit-proj-btn" data-id="${p.id}" title="Edit">
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                  <button type="button" class="btn btn-outline-danger delete-proj-btn" data-id="${p.id}" title="Delete">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          `;
+        }).join("");
+
+        // Attach action events
+        document.querySelectorAll(".edit-proj-btn").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const id = btn.getAttribute("data-id");
+            const p = PortfolioStore.getProject(id);
+            if (p) {
+              idInput.value = p.id;
+              titleInput.value = p.title || "";
+              statusSelect.value = p.status || "Completed";
+              imageInput.value = p.image || "image.jpg";
+              orderInput.value = p.order || 1;
+              shortDescInput.value = p.shortDesc || "";
+              descInput.value = p.description || "";
+              techInput.value = (p.tech || []).join(", ");
+              githubInput.value = p.github || "";
+              liveInput.value = p.link || "#contact";
+              document.getElementById("projectModalTitle").textContent = "Edit Project";
+              projectModal.show();
+            }
+          });
+        });
+
+        document.querySelectorAll(".delete-proj-btn").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const id = btn.getAttribute("data-id");
+            const p = PortfolioStore.getProject(id);
+            AdminUI.confirmAction({
+              title: "Delete Project?",
+              message: `Are you sure you want to delete "${p?.title || 'this project'}"?`,
+              confirmBtnText: "Delete Project",
+              confirmBtnClass: "btn-danger",
+              onConfirm: () => {
+                PortfolioStore.deleteProject(id);
+                renderProjects();
+                AdminUI.showToast("Project deleted successfully", "success");
+              }
+            });
+          });
+        });
+      }
+
+      // Add Project
+      document.getElementById("openAddProjectModalBtn").addEventListener("click", () => {
+        idInput.value = "";
+        projectForm.reset();
+        orderInput.value = PortfolioStore.getProjects().length + 1;
+        imageInput.value = "image.jpg";
+        document.getElementById("projectModalTitle").textContent = "Add New Project";
+        projectModal.show();
+      });
+
+      // Form Submit
+      projectForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const id = idInput.value;
+        const techs = techInput.value
+          .split(",")
+          .map(t => t.trim())
+          .filter(t => t.length > 0);
+
+        const projectData = {
+          id: id || undefined,
+          title: titleInput.value.trim(),
+          status: statusSelect.value,
+          image: imageInput.value.trim() || "image.jpg",
+          order: parseInt(orderInput.value) || 1,
+          shortDesc: shortDescInput.value.trim(),
+          description: descInput.value.trim(),
+          tech: techs,
+          github: githubInput.value.trim(),
+          link: liveInput.value.trim() || "#contact"
+        };
+
+        PortfolioStore.saveProject(projectData);
+        projectModal.hide();
+        renderProjects();
+        AdminUI.showToast("Project saved successfully!", "success");
+      });
+
+      // Filter events
+      searchInput.addEventListener("input", renderProjects);
+      filterSelect.addEventListener("change", renderProjects);
+
+      renderProjects();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Settings | Portfolio Admin</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-body">
+  <div class="admin-wrapper">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-badge">KS</div>
+        <div class="brand-info">
+          <h6 class="brand-title">Krish Savaliya</h6>
+          <p class="brand-subtitle">Portfolio CMS</p>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-section-title">Overview</div>
+        <a href="index.html" class="sidebar-link" data-page="dashboard">
+          <i class="bi bi-grid-fill"></i>
+          <span>Dashboard</span>
+        </a>
+        
+        <div class="nav-section-title">Content Sections</div>
+        <a href="profile.html" class="sidebar-link" data-page="profile">
+          <i class="bi bi-person-bounding-box"></i>
+          <span>Hero &amp; About</span>
+        </a>
+        <a href="skills.html" class="sidebar-link" data-page="skills">
+          <i class="bi bi-tools"></i>
+          <span>Skills &amp; Tech</span>
+        </a>
+        <a href="projects.html" class="sidebar-link" data-page="projects">
+          <i class="bi bi-folder-fill"></i>
+          <span>Projects</span>
+        </a>
+        <a href="experience.html" class="sidebar-link" data-page="experience">
+          <i class="bi bi-briefcase-fill"></i>
+          <span>Experience</span>
+        </a>
+        <a href="certifications.html" class="sidebar-link" data-page="certifications">
+          <i class="bi bi-patch-check-fill"></i>
+          <span>Certifications</span>
+        </a>
+        <a href="testimonials.html" class="sidebar-link" data-page="testimonials">
+          <i class="bi bi-chat-quote-fill"></i>
+          <span>Testimonials</span>
+        </a>
+
+        <div class="nav-section-title">Communication &amp; Files</div>
+        <a href="messages.html" class="sidebar-link" data-page="messages">
+          <i class="bi bi-envelope-fill"></i>
+          <span>Messages</span>
+          <span class="badge bg-danger rounded-pill ms-auto badge-messages-count d-none">0</span>
+        </a>
+        <a href="resume.html" class="sidebar-link" data-page="resume">
+          <i class="bi bi-file-earmark-pdf-fill"></i>
+          <span>Resume</span>
+        </a>
+
+        <div class="nav-section-title">Configuration</div>
+        <a href="settings.html" class="sidebar-link active" data-page="settings">
+          <i class="bi bi-gear-fill"></i>
+          <span>Site Settings</span>
+        </a>
+      </div>
+      <div class="sidebar-footer">
+        <a href="../index.html" target="_blank" class="btn btn-outline-light w-100 btn-sm d-flex align-items-center justify-content-center gap-2 py-2">
+          <i class="bi bi-box-arrow-up-right"></i>
+          <span>View Live Site</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div class="topbar-left">
+          <button class="btn btn-icon d-lg-none" id="sidebarToggleBtn"><i class="bi bi-list fs-5"></i></button>
+          <h1 class="topbar-title">Site Settings &amp; Configuration</h1>
+        </div>
+        <div class="topbar-right">
+          <a href="messages.html" class="btn-icon text-decoration-none" title="Messages">
+            <i class="bi bi-bell"></i>
+            <span class="badge-dot-notification d-none" id="topbarMessageDot"></span>
+          </a>
+          <div class="dropdown">
+            <a href="#" class="user-avatar-pill dropdown-toggle text-decoration-none" data-bs-toggle="dropdown">
+              <div class="user-avatar-img">KS</div>
+              <span class="user-avatar-name" id="adminUserName">Krish Savaliya</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+              <li><a class="dropdown-item py-2 small" href="settings.html"><i class="bi bi-gear me-2"></i> Settings</a></li>
+              <li><a class="dropdown-item py-2 small" href="../index.html" target="_blank"><i class="bi bi-box-arrow-up-right me-2"></i> View Live Site</a></li>
+              <li><hr class="dropdown-divider my-1"></li>
+              <li><a class="dropdown-item py-2 small text-danger" href="#" id="adminLogoutBtn"><i class="bi bi-box-arrow-right me-2"></i> Sign Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <div class="row g-4">
+          <!-- Main Settings Form -->
+          <div class="col-lg-8">
+            <div class="card-custom">
+              <div class="card-header-custom">
+                <h3 class="card-title-custom">
+                  <i class="bi bi-sliders text-warning"></i>
+                  <span>General Site Information</span>
+                </h3>
+              </div>
+              <div class="card-body-custom">
+                <form id="settingsForm">
+                  <div class="row g-3 mb-4">
+                    <div class="col-12">
+                      <label for="siteTitleInput" class="form-label">Browser Window Title <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="siteTitleInput" required>
+                    </div>
+
+                    <div class="col-12">
+                      <label for="metaDescInput" class="form-label">SEO Meta Description</label>
+                      <textarea class="form-control" id="metaDescInput" rows="2"></textarea>
+                    </div>
+
+                    <div class="col-12">
+                      <label for="metaKeywordsInput" class="form-label">SEO Meta Keywords</label>
+                      <input type="text" class="form-control" id="metaKeywordsInput">
+                    </div>
+                  </div>
+
+                  <h5 class="fw-bold border-top pt-4 mb-3 text-dark">Contact &amp; Social Links</h5>
+                  <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                      <label for="contactEmailInput" class="form-label">Contact Email</label>
+                      <input type="email" class="form-control" id="contactEmailInput" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="linkedinUrlInput" class="form-label">LinkedIn Profile URL</label>
+                      <input type="url" class="form-control" id="linkedinUrlInput">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="githubUrlInput" class="form-label">GitHub Profile URL</label>
+                      <input type="url" class="form-control" id="githubUrlInput">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="footerDeptInput" class="form-label">Department / Affiliation</label>
+                      <input type="text" class="form-control" id="footerDeptInput">
+                    </div>
+                    <div class="col-12">
+                      <label for="footerCopyInput" class="form-label">Footer Copyright Notice</label>
+                      <input type="text" class="form-control" id="footerCopyInput">
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-admin-primary d-inline-flex align-items-center gap-2">
+                    <i class="bi bi-check2-circle"></i>
+                    <span>Save Settings</span>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section Visibility & Data Backup -->
+          <div class="col-lg-4">
+            <!-- Section Visibility Toggles -->
+            <div class="card-custom mb-4">
+              <div class="card-header-custom">
+                <h3 class="card-title-custom">
+                  <i class="bi bi-eye text-primary"></i>
+                  <span>Section Visibility</span>
+                </h3>
+              </div>
+              <div class="card-body-custom">
+                <p class="text-muted small mb-3">Enable or disable sections on your live public portfolio without deleting any content.</p>
+                <div class="d-flex flex-column gap-3" id="sectionTogglesContainer">
+                  <!-- Toggles populated via JS -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Database Backup & Reset -->
+            <div class="card-custom">
+              <div class="card-header-custom">
+                <h3 class="card-title-custom">
+                  <i class="bi bi-database text-secondary"></i>
+                  <span>Data &amp; Backup</span>
+                </h3>
+              </div>
+              <div class="card-body-custom d-flex flex-column gap-3">
+                <button type="button" class="btn btn-outline-dark btn-sm d-flex align-items-center justify-content-center gap-2 py-2" id="exportDataBtn">
+                  <i class="bi bi-download"></i> Export JSON Backup
+                </button>
+
+                <div>
+                  <label class="btn btn-outline-secondary btn-sm w-100 d-flex align-items-center justify-content-center gap-2 py-2 mb-0" for="importJsonInput">
+                    <i class="bi bi-upload"></i> Restore from JSON Backup
+                  </label>
+                  <input type="file" id="importJsonInput" accept=".json" class="d-none">
+                </div>
+
+                <hr class="my-1">
+
+                <button type="button" class="btn btn-outline-danger btn-sm d-flex align-items-center justify-content-center gap-2 py-2" id="resetDataBtn">
+                  <i class="bi bi-arrow-counterclockwise"></i> Reset All Data to Defaults
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/portfolio-data.js"></script>
+  <script src="../assets/js/portfolio-store.js"></script>
+  <script src="../assets/js/admin.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      AdminUI.init("settings");
+
+      const settings = PortfolioStore.getSettings();
+
+      const siteTitleInput = document.getElementById("siteTitleInput");
+      const metaDescInput = document.getElementById("metaDescInput");
+      const metaKeywordsInput = document.getElementById("metaKeywordsInput");
+      const contactEmailInput = document.getElementById("contactEmailInput");
+      const linkedinUrlInput = document.getElementById("linkedinUrlInput");
+      const githubUrlInput = document.getElementById("githubUrlInput");
+      const footerDeptInput = document.getElementById("footerDeptInput");
+      const footerCopyInput = document.getElementById("footerCopyInput");
+
+      siteTitleInput.value = settings.siteTitle || "Krish Savaliya | Portfolio";
+      metaDescInput.value = settings.metaDescription || "";
+      metaKeywordsInput.value = settings.metaKeywords || "";
+      contactEmailInput.value = settings.email || "krishsavaliya018@gmail.com";
+      linkedinUrlInput.value = settings.linkedin || "";
+      githubUrlInput.value = settings.github || "";
+      footerDeptInput.value = settings.footerDepartment || "";
+      footerCopyInput.value = settings.footerCopyright || "";
+
+      // Section Toggles
+      const sections = settings.sections || {
+        hero: true,
+        about: true,
+        skills: true,
+        projects: true,
+        experience: true,
+        certifications: true,
+        testimonials: true,
+        contact: true
+      };
+
+      const togglesContainer = document.getElementById("sectionTogglesContainer");
+      const sectionLabels = {
+        hero: "Hero Section",
+        about: "About Me Section",
+        skills: "Skills Section",
+        projects: "Projects Section",
+        experience: "Experience Section",
+        certifications: "Certifications Section",
+        testimonials: "Testimonials Section",
+        contact: "Contact Form Section"
+      };
+
+      function renderToggles() {
+        togglesContainer.innerHTML = Object.entries(sectionLabels).map(([key, label]) => {
+          const isChecked = sections[key] !== false;
+          return `
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="small fw-semibold text-dark">${label}</span>
+              <div class="form-check form-switch mb-0">
+                <input class="form-check-input section-toggle" type="checkbox" data-section="${key}" ${isChecked ? 'checked' : ''}>
+              </div>
+            </div>
+          `;
+        }).join("");
+
+        document.querySelectorAll(".section-toggle").forEach(input => {
+          input.addEventListener("change", (e) => {
+            const sec = e.target.getAttribute("data-section");
+            const checked = e.target.checked;
+            sections[sec] = checked;
+            PortfolioStore.toggleSectionVisibility(sec, checked);
+            AdminUI.showToast(`Updated visibility for ${sectionLabels[sec]}`, "info");
+          });
+        });
+      }
+
+      renderToggles();
+
+      // Submit Settings Form
+      document.getElementById("settingsForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const updated = {
+          siteTitle: siteTitleInput.value.trim(),
+          metaDescription: metaDescInput.value.trim(),
+          metaKeywords: metaKeywordsInput.value.trim(),
+          email: contactEmailInput.value.trim(),
+          linkedin: linkedinUrlInput.value.trim(),
+          github: githubUrlInput.value.trim(),
+          footerDepartment: footerDeptInput.value.trim(),
+          footerCopyright: footerCopyInput.value.trim(),
+          sections: sections
+        };
+
+        PortfolioStore.updateSettings(updated);
+        AdminUI.showToast("Settings saved successfully!", "success");
+      });
+
+      // Export JSON
+      document.getElementById("exportDataBtn").addEventListener("click", () => {
+        const json = PortfolioStore.exportData();
+        const blob = new Blob([json], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `portfolio-backup-${new Date().toISOString().split("T")[0]}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        AdminUI.showToast("Backup exported successfully", "success");
+      });
+
+      // Import JSON
+      document.getElementById("importJsonInput").addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            const res = PortfolioStore.importData(event.target.result);
+            if (res.success) {
+              AdminUI.showToast("Backup restored successfully! Reloading...", "success");
+              setTimeout(() => location.reload(), 1000);
+            } else {
+              AdminUI.showToast(`Import failed: ${res.error}`, "danger");
+            }
+          };
+          reader.readAsText(file);
+        }
+      });
+
+      // Reset to Defaults
+      document.getElementById("resetDataBtn").addEventListener("click", () => {
+        AdminUI.confirmAction({
+          title: "Reset All Portfolio Data?",
+          message: "This will restore all projects, skills, experience, and testimonials to their original seeded defaults. Any custom changes will be overwritten.",
+          confirmBtnText: "Yes, Reset Everything",
+          confirmBtnClass: "btn-danger",
+          onConfirm: () => {
+            PortfolioStore.resetToDefaults();
+            AdminUI.showToast("All data reset to default seed. Reloading...", "warning");
+            setTimeout(() => location.reload(), 1000);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

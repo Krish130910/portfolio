@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certifications | Portfolio Admin</title>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-body">
+  <div class="admin-wrapper">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-badge">KS</div>
+        <div class="brand-info">
+          <h6 class="brand-title">Krish Savaliya</h6>
+          <p class="brand-subtitle">Portfolio CMS</p>
+        </div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-section-title">Overview</div>
+        <a href="index.html" class="sidebar-link" data-page="dashboard">
+          <i class="bi bi-grid-fill"></i>
+          <span>Dashboard</span>
+        </a>
+        
+        <div class="nav-section-title">Content Sections</div>
+        <a href="profile.html" class="sidebar-link" data-page="profile">
+          <i class="bi bi-person-bounding-box"></i>
+          <span>Hero &amp; About</span>
+        </a>
+        <a href="skills.html" class="sidebar-link" data-page="skills">
+          <i class="bi bi-tools"></i>
+          <span>Skills &amp; Tech</span>
+        </a>
+        <a href="projects.html" class="sidebar-link" data-page="projects">
+          <i class="bi bi-folder-fill"></i>
+          <span>Projects</span>
+        </a>
+        <a href="experience.html" class="sidebar-link" data-page="experience">
+          <i class="bi bi-briefcase-fill"></i>
+          <span>Experience</span>
+        </a>
+        <a href="certifications.html" class="sidebar-link active" data-page="certifications">
+          <i class="bi bi-patch-check-fill"></i>
+          <span>Certifications</span>
+        </a>
+        <a href="testimonials.html" class="sidebar-link" data-page="testimonials">
+          <i class="bi bi-chat-quote-fill"></i>
+          <span>Testimonials</span>
+        </a>
+
+        <div class="nav-section-title">Communication &amp; Files</div>
+        <a href="messages.html" class="sidebar-link" data-page="messages">
+          <i class="bi bi-envelope-fill"></i>
+          <span>Messages</span>
+          <span class="badge bg-danger rounded-pill ms-auto badge-messages-count d-none">0</span>
+        </a>
+        <a href="resume.html" class="sidebar-link" data-page="resume">
+          <i class="bi bi-file-earmark-pdf-fill"></i>
+          <span>Resume</span>
+        </a>
+
+        <div class="nav-section-title">Configuration</div>
+        <a href="settings.html" class="sidebar-link" data-page="settings">
+          <i class="bi bi-gear-fill"></i>
+          <span>Site Settings</span>
+        </a>
+      </div>
+      <div class="sidebar-footer">
+        <a href="../index.html" target="_blank" class="btn btn-outline-light w-100 btn-sm d-flex align-items-center justify-content-center gap-2 py-2">
+          <i class="bi bi-box-arrow-up-right"></i>
+          <span>View Live Site</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div class="topbar-left">
+          <button class="btn btn-icon d-lg-none" id="sidebarToggleBtn"><i class="bi bi-list fs-5"></i></button>
+          <h1 class="topbar-title">Certifications &amp; Badges</h1>
+        </div>
+        <div class="topbar-right">
+          <a href="messages.html" class="btn-icon text-decoration-none" title="Messages">
+            <i class="bi bi-bell"></i>
+            <span class="badge-dot-notification d-none" id="topbarMessageDot"></span>
+          </a>
+          <div class="dropdown">
+            <a href="#" class="user-avatar-pill dropdown-toggle text-decoration-none" data-bs-toggle="dropdown">
+              <div class="user-avatar-img">KS</div>
+              <span class="user-avatar-name" id="adminUserName">Krish Savaliya</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+              <li><a class="dropdown-item py-2 small" href="settings.html"><i class="bi bi-gear me-2"></i> Settings</a></li>
+              <li><a class="dropdown-item py-2 small" href="../index.html" target="_blank"><i class="bi bi-box-arrow-up-right me-2"></i> View Live Site</a></li>
+              <li><hr class="dropdown-divider my-1"></li>
+              <li><a class="dropdown-item py-2 small text-danger" href="#" id="adminLogoutBtn"><i class="bi bi-box-arrow-right me-2"></i> Sign Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-4">
+          <div>
+            <h4 class="fw-bold mb-1">Accreditations &amp; Certificates</h4>
+            <p class="text-muted small mb-0">Manage certifications displayed in the Certifications section of your portfolio.</p>
+          </div>
+          <button class="btn btn-admin-primary d-inline-flex align-items-center gap-2" id="openAddCertModalBtn">
+            <i class="bi bi-plus-circle"></i>
+            <span>Add Certification</span>
+          </button>
+        </div>
+
+        <div class="row g-4" id="certsGrid">
+          <!-- Rendered via JS -->
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add/Edit Certification Modal -->
+  <div class="modal fade" id="certModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="certModalTitle">Add Certification</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="certForm">
+          <input type="hidden" id="certIdInput">
+          <div class="modal-body">
+            <div class="row g-3">
+              <div class="col-12">
+                <label for="certTitleInput" class="form-label">Certification Title <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="certTitleInput" placeholder="e.g. Frontend Development" required>
+              </div>
+
+              <div class="col-md-7">
+                <label for="certIssuerInput" class="form-label">Issuing Organization</label>
+                <input type="text" class="form-control" id="certIssuerInput" placeholder="e.g. Marwadi University / Coursera">
+              </div>
+
+              <div class="col-md-5">
+                <label for="certDateInput" class="form-label">Year / Issue Date</label>
+                <input type="text" class="form-control" id="certDateInput" placeholder="e.g. 2024">
+              </div>
+
+              <div class="col-12">
+                <label for="certUrlInput" class="form-label">Credential Verification URL</label>
+                <input type="text" class="form-control" id="certUrlInput" placeholder="https://... or #">
+              </div>
+
+              <div class="col-12">
+                <label for="certDescInput" class="form-label">Description / Core Skills Covered <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="certDescInput" rows="3" placeholder="Brief outline of skills or modules validated..." required></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-admin-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-admin-primary">Save Certification</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/portfolio-data.js"></script>
+  <script src="../assets/js/portfolio-store.js"></script>
+  <script src="../assets/js/admin.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      AdminUI.init("certifications");
+
+      const grid = document.getElementById("certsGrid");
+      const certModalEl = document.getElementById("certModal");
+      const certModal = new bootstrap.Modal(certModalEl);
+      const certForm = document.getElementById("certForm");
+
+      const idInput = document.getElementById("certIdInput");
+      const titleInput = document.getElementById("certTitleInput");
+      const issuerInput = document.getElementById("certIssuerInput");
+      const dateInput = document.getElementById("certDateInput");
+      const urlInput = document.getElementById("certUrlInput");
+      const descInput = document.getElementById("certDescInput");
+
+      function renderCertifications() {
+        const certs = PortfolioStore.getCertifications();
+        if (certs.length === 0) {
+          grid.innerHTML = `
+            <div class="col-12 text-center py-5">
+              <i class="bi bi-patch-check display-4 text-muted mb-3 d-block"></i>
+              <h5>No Certifications Found</h5>
+              <p class="text-muted">Click "Add Certification" to display your credentials.</p>
+            </div>
+          `;
+          return;
+        }
+
+        grid.innerHTML = certs.map((c) => {
+          return `
+            <div class="col-md-6 col-lg-4">
+              <div class="card-custom h-100 d-flex flex-column">
+                <div class="card-header-custom bg-light">
+                  <h5 class="card-title-custom mb-0 text-truncate" title="${c.title}">${c.title}</h5>
+                  <div class="btn-group btn-group-sm">
+                    <button class="btn btn-outline-secondary edit-cert-btn" data-id="${c.id}" title="Edit"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-outline-danger delete-cert-btn" data-id="${c.id}" title="Delete"><i class="bi bi-trash"></i></button>
+                  </div>
+                </div>
+                <div class="card-body-custom flex-grow-1 d-flex flex-column">
+                  <div class="d-flex justify-content-between align-items-center mb-2 text-muted small">
+                    <span class="fw-semibold text-dark">${c.issuer || 'Self-paced'}</span>
+                    <span>${c.date || ''}</span>
+                  </div>
+                  <p class="text-secondary small mb-3 flex-grow-1">${c.description}</p>
+                  ${c.credentialUrl && c.credentialUrl !== '#' ? `
+                    <div class="pt-2 border-top">
+                      <a href="${c.credentialUrl}" target="_blank" class="small text-decoration-none d-inline-flex align-items-center gap-1">
+                        <i class="bi bi-box-arrow-up-right"></i> Verify Credential
+                      </a>
+                    </div>
+                  ` : ''}
+                </div>
+              </div>
+            </div>
+          `;
+        }).join("");
+
+        // Attach events
+        document.querySelectorAll(".edit-cert-btn").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const id = btn.getAttribute("data-id");
+            const c = PortfolioStore.getCertification(id);
+            if (c) {
+              idInput.value = c.id;
+              titleInput.value = c.title || "";
+              issuerInput.value = c.issuer || "";
+              dateInput.value = c.date || "";
+              urlInput.value = c.credentialUrl || "#";
+              descInput.value = c.description || "";
+              document.getElementById("certModalTitle").textContent = "Edit Certification";
+              certModal.show();
+            }
+          });
+        });
+
+        document.querySelectorAll(".delete-cert-btn").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const id = btn.getAttribute("data-id");
+            const c = PortfolioStore.getCertification(id);
+            AdminUI.confirmAction({
+              title: "Delete Certification?",
+              message: `Are you sure you want to delete "${c?.title || 'this certification'}"?`,
+              confirmBtnText: "Delete Certification",
+              confirmBtnClass: "btn-danger",
+              onConfirm: () => {
+                PortfolioStore.deleteCertification(id);
+                renderCertifications();
+                AdminUI.showToast("Certification deleted successfully", "success");
+              }
+            });
+          });
+        });
+      }
+
+      // Add
+      document.getElementById("openAddCertModalBtn").addEventListener("click", () => {
+        idInput.value = "";
+        certForm.reset();
+        urlInput.value = "#";
+        document.getElementById("certModalTitle").textContent = "Add Certification";
+        certModal.show();
+      });
+
+      // Submit
+      certForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const id = idInput.value;
+        const data = {
+          id: id || undefined,
+          title: titleInput.value.trim(),
+          issuer: issuerInput.value.trim(),
+          date: dateInput.value.trim(),
+          credentialUrl: urlInput.value.trim(),
+          description: descInput.value.trim()
+        };
+
+        PortfolioStore.saveCertification(data);
+        certModal.hide();
+        renderCertifications();
+        AdminUI.showToast("Certification saved!", "success");
+      });
+
+      renderCertifications();
+    });
+  </script>
+</body>
+</html>
