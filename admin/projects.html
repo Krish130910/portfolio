@@ -1,436 +1,352 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects Management | Portfolio Admin</title>
-  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="../assets/css/admin.css">
-</head>
-<body class="admin-body">
-  <div class="admin-wrapper">
-    <!-- Sidebar -->
-    <aside class="admin-sidebar">
-      <div class="sidebar-brand">
-        <div class="brand-badge">KS</div>
-        <div class="brand-info">
-          <h6 class="brand-title">Krish Savaliya</h6>
-          <p class="brand-subtitle">Portfolio CMS</p>
-        </div>
-      </div>
-      <div class="sidebar-nav">
-        <div class="nav-section-title">Overview</div>
-        <a href="index.html" class="sidebar-link" data-page="dashboard">
-          <i class="bi bi-grid-fill"></i>
-          <span>Dashboard</span>
-        </a>
-        
-        <div class="nav-section-title">Content Sections</div>
-        <a href="profile.html" class="sidebar-link" data-page="profile">
-          <i class="bi bi-person-bounding-box"></i>
-          <span>Hero &amp; About</span>
-        </a>
-        <a href="skills.html" class="sidebar-link" data-page="skills">
-          <i class="bi bi-tools"></i>
-          <span>Skills &amp; Tech</span>
-        </a>
-        <a href="projects.html" class="sidebar-link active" data-page="projects">
-          <i class="bi bi-folder-fill"></i>
-          <span>Projects</span>
-        </a>
-        <a href="experience.html" class="sidebar-link" data-page="experience">
-          <i class="bi bi-briefcase-fill"></i>
-          <span>Experience</span>
-        </a>
-        <a href="certifications.html" class="sidebar-link" data-page="certifications">
-          <i class="bi bi-patch-check-fill"></i>
-          <span>Certifications</span>
-        </a>
-        <a href="testimonials.html" class="sidebar-link" data-page="testimonials">
-          <i class="bi bi-chat-quote-fill"></i>
-          <span>Testimonials</span>
-        </a>
-
-        <div class="nav-section-title">Communication &amp; Files</div>
-        <a href="messages.html" class="sidebar-link" data-page="messages">
-          <i class="bi bi-envelope-fill"></i>
-          <span>Messages</span>
-          <span class="badge bg-danger rounded-pill ms-auto badge-messages-count d-none">0</span>
-        </a>
-        <a href="resume.html" class="sidebar-link" data-page="resume">
-          <i class="bi bi-file-earmark-pdf-fill"></i>
-          <span>Resume</span>
-        </a>
-
-        <div class="nav-section-title">Configuration</div>
-        <a href="settings.html" class="sidebar-link" data-page="settings">
-          <i class="bi bi-gear-fill"></i>
-          <span>Site Settings</span>
-        </a>
-      </div>
-      <div class="sidebar-footer">
-        <a href="../index.html" target="_blank" class="btn btn-outline-light w-100 btn-sm d-flex align-items-center justify-content-center gap-2 py-2">
-          <i class="bi bi-box-arrow-up-right"></i>
-          <span>View Live Site</span>
-        </a>
-      </div>
-    </aside>
-
-    <!-- Main Content -->
-    <div class="admin-main">
-      <header class="admin-topbar">
-        <div class="topbar-left">
-          <button class="btn btn-icon d-lg-none" id="sidebarToggleBtn"><i class="bi bi-list fs-5"></i></button>
-          <h1 class="topbar-title">Featured Projects</h1>
-        </div>
-        <div class="topbar-right">
-          <a href="messages.html" class="btn-icon text-decoration-none" title="Messages">
-            <i class="bi bi-bell"></i>
-            <span class="badge-dot-notification d-none" id="topbarMessageDot"></span>
-          </a>
-          <div class="dropdown">
-            <a href="#" class="user-avatar-pill dropdown-toggle text-decoration-none" data-bs-toggle="dropdown">
-              <div class="user-avatar-img">KS</div>
-              <span class="user-avatar-name" id="adminUserName">Krish Savaliya</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Projects - Portfolio Admin</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+    <style>
+      body {
+        background-color: #faf8f5;
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        color: #24201d;
+      }
+      .admin-nav {
+        background-color: #24201d !important;
+      }
+      .admin-nav .navbar-brand,
+      .admin-nav .nav-link {
+        color: #ede8d8 !important;
+      }
+      .admin-nav .nav-link:hover,
+      .admin-nav .nav-link.active {
+        color: #ed7c25 !important;
+        font-weight: 600;
+      }
+      .admin-card {
+        border-radius: 10px;
+        border: 1px solid #e7ddd3;
+        background-color: #ffffff;
+        box-shadow: 0 4px 12px rgba(76, 48, 25, 0.05);
+      }
+      .project-img-preview {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background-color: #f4eee7;
+      }
+      .footer-admin {
+        margin-top: 60px;
+        padding: 24px 0;
+        background-color: #ffffff;
+        border-top: 1px solid #e7ddd3;
+      }
+      .btn-primary {
+        background-color: #ed7c25;
+        border-color: #ed7c25;
+      }
+      .btn-primary:hover {
+        background-color: #bd5712;
+        border-color: #bd5712;
+      }
+      .btn-outline-primary {
+        color: #ed7c25;
+        border-color: #ed7c25;
+      }
+      .btn-outline-primary:hover {
+        background-color: #ed7c25;
+        border-color: #ed7c25;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===================== ADMIN NAVBAR ===================== -->
+    <nav class="navbar navbar-expand-lg admin-nav sticky-top">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand fw-bold" href="index.html">Portfolio Admin</a>
+        <button
+          class="navbar-toggler bg-light"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#adminNavbar"
+          aria-controls="adminNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="adminNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="skills.html">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="projects.html">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="experience.html">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="certifications.html">Certifications</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="testimonials.html">Testimonials</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Messages</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center gap-2">
+            <a href="../index.html" target="_blank" class="btn btn-outline-light btn-sm">
+              View Portfolio
             </a>
-            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
-              <li><a class="dropdown-item py-2 small" href="settings.html"><i class="bi bi-gear me-2"></i> Settings</a></li>
-              <li><a class="dropdown-item py-2 small" href="../index.html" target="_blank"><i class="bi bi-box-arrow-up-right me-2"></i> View Live Site</a></li>
-              <li><hr class="dropdown-divider my-1"></li>
-              <li><a class="dropdown-item py-2 small text-danger" href="#" id="adminLogoutBtn"><i class="bi bi-box-arrow-right me-2"></i> Sign Out</a></li>
-            </ul>
           </div>
         </div>
-      </header>
+      </div>
+    </nav>
 
-      <main class="admin-content">
-        <!-- Action Header -->
-        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
-          <div>
-            <h4 class="fw-bold mb-1">Portfolio Project Showcase</h4>
-            <p class="text-muted small mb-0">Manage projects displayed on your portfolio. Order and status are customizable.</p>
-          </div>
-          <button class="btn btn-admin-primary d-inline-flex align-items-center gap-2" id="openAddProjectModalBtn">
-            <i class="bi bi-plus-circle"></i>
-            <span>Add New Project</span>
-          </button>
+    <!-- ===================== PROJECTS CONTENT ===================== -->
+    <div class="container my-4">
+      <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <div>
+          <h2 class="fw-bold mb-1" style="color: #24201d;">Manage Projects</h2>
+          <p class="text-muted mb-0">View, update, or add portfolio projects for Krish Savaliya.</p>
         </div>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#addProjectModal"
+        >
+          + Add New Project
+        </button>
+      </div>
 
-        <!-- Filter & Search Bar -->
-        <div class="card-custom p-3 mb-4">
-          <div class="row g-2 align-items-center">
-            <div class="col-md-6">
-              <div class="input-group">
-                <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-search"></i></span>
-                <input type="text" class="form-control border-start-0 ps-0" id="projectSearchInput" placeholder="Search by title, description or technology...">
+      <!-- Project Cards Grid -->
+      <div class="row g-4" id="projectsContainer">
+        <!-- Project 1: HealthGuard AI -->
+        <div class="col-lg-4 col-md-6 project-card-item">
+          <div class="card admin-card h-100">
+            <img src="../image.jpg" class="project-img-preview" alt="HealthGuard AI" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold mb-2 project-title">HealthGuard AI</h5>
+              <div class="mb-3 tech-stack-container">
+                <span class="badge bg-primary me-1">React</span>
+                <span class="badge bg-info text-dark me-1">TypeScript</span>
+                <span class="badge bg-secondary me-1">Tailwind CSS</span>
+                <span class="badge bg-dark">Firebase</span>
+              </div>
+              <ul class="text-muted small ps-3 mb-4 points-list">
+                <li>Full-stack preventive healthcare web platform</li>
+                <li>AI-driven risk assessment with fail-safe responses</li>
+                <li>Health tracking dashboard &amp; progress report generation</li>
+              </ul>
+              <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top">
+                <div class="btn-group btn-group-sm">
+                  <a href="https://healthguard-ai.vercel.app" target="_blank" class="btn btn-outline-secondary link-live">Live</a>
+                  <a href="https://github.com/Krish130910/HealthGuard-AI" target="_blank" class="btn btn-outline-secondary link-github">GitHub</a>
+                </div>
+                <div class="btn-group btn-group-sm">
+                  <button type="button" class="btn btn-primary btn-edit-project" data-bs-toggle="modal" data-bs-target="#editProjectModal">Edit</button>
+                  <button type="button" class="btn btn-danger btn-delete-project" data-bs-toggle="modal" data-bs-target="#deleteProjectModal">Delete</button>
+                </div>
               </div>
             </div>
-            <div class="col-md-3">
-              <select class="form-select" id="statusFilterSelect">
-                <option value="all">All Statuses</option>
-                <option value="Completed">Completed</option>
-                <option value="Ongoing">Ongoing</option>
-              </select>
-            </div>
-            <div class="col-md-3 text-md-end text-muted small">
-              Showing <span id="projectCountLabel" class="fw-bold text-dark">0</span> projects
+          </div>
+        </div>
+
+        <!-- Project 2: WebTech Course Portal -->
+        <div class="col-lg-4 col-md-6 project-card-item">
+          <div class="card admin-card h-100">
+            <img src="../image.jpg" class="project-img-preview" alt="WebTech Course Portal" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold mb-2 project-title">WebTech Course Portal</h5>
+              <div class="mb-3 tech-stack-container">
+                <span class="badge bg-warning text-dark me-1">HTML5</span>
+                <span class="badge bg-primary me-1">CSS3</span>
+                <span class="badge bg-info text-dark me-1">HTTP</span>
+                <span class="badge bg-success">Client-Server</span>
+              </div>
+              <ul class="text-muted small ps-3 mb-4 points-list">
+                <li>Educational hub for Marwadi University WebTech course (01IT0505)</li>
+                <li>Covers DNS resolution, HTTP request/response methods, status codes</li>
+                <li>Demonstrates pure semantic HTML5 and CSS3 Grid/Flexbox architecture</li>
+              </ul>
+              <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top">
+                <div class="btn-group btn-group-sm">
+                  <a href="https://webtech-portal.vercel.app" target="_blank" class="btn btn-outline-secondary link-live">Live</a>
+                  <a href="https://github.com/Krish130910/WebTech-Course-Portal" target="_blank" class="btn btn-outline-secondary link-github">GitHub</a>
+                </div>
+                <div class="btn-group btn-group-sm">
+                  <button type="button" class="btn btn-primary btn-edit-project" data-bs-toggle="modal" data-bs-target="#editProjectModal">Edit</button>
+                  <button type="button" class="btn btn-danger btn-delete-project" data-bs-toggle="modal" data-bs-target="#deleteProjectModal">Delete</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Projects Table -->
-        <div class="card-custom">
-          <div class="card-body-custom p-0">
-            <div class="table-responsive">
-              <table class="table table-admin mb-0">
-                <thead>
-                  <tr>
-                    <th style="width: 50px;">#</th>
-                    <th>Project</th>
-                    <th>Tech Stack</th>
-                    <th>Status</th>
-                    <th>Links</th>
-                    <th class="text-end">Actions</th>
-                  </tr>
-                </thead>
-                <tbody id="projectsTableBody">
-                  <!-- Rendered via JS -->
-                </tbody>
-              </table>
+        <!-- Project 3: ToolVerse SaaS -->
+        <div class="col-lg-4 col-md-6 project-card-item">
+          <div class="card admin-card h-100">
+            <img src="../image.jpg" class="project-img-preview" alt="ToolVerse SaaS" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold mb-2 project-title">ToolVerse SaaS</h5>
+              <div class="mb-3 tech-stack-container">
+                <span class="badge bg-primary me-1">Next.js</span>
+                <span class="badge bg-info text-dark me-1">React</span>
+                <span class="badge bg-secondary me-1">TypeScript</span>
+                <span class="badge bg-dark">Tailwind CSS</span>
+              </div>
+              <ul class="text-muted small ps-3 mb-4 points-list">
+                <li>Privacy-first developer platform with 33+ browser-based tools</li>
+                <li>Built with client-side execution, zero server latency</li>
+                <li>Responsive UI with CSS variables and 2D hover transforms</li>
+              </ul>
+              <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top">
+                <div class="btn-group btn-group-sm">
+                  <a href="https://toolverse.vercel.app" target="_blank" class="btn btn-outline-secondary link-live">Live</a>
+                  <a href="https://github.com/Krish130910/ToolVerse" target="_blank" class="btn btn-outline-secondary link-github">GitHub</a>
+                </div>
+                <div class="btn-group btn-group-sm">
+                  <button type="button" class="btn btn-primary btn-edit-project" data-bs-toggle="modal" data-bs-target="#editProjectModal">Edit</button>
+                  <button type="button" class="btn btn-danger btn-delete-project" data-bs-toggle="modal" data-bs-target="#deleteProjectModal">Delete</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </div>
-  </div>
 
-  <!-- Add/Edit Project Modal -->
-  <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title fw-bold" id="projectModalTitle">Add Project</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form id="projectForm">
-          <input type="hidden" id="projectIdInput">
+    <!-- ===================== MODALS ===================== -->
+
+    <!-- Add Project Modal -->
+    <div class="modal fade" id="addProjectModal" tabindex="-1" aria-labelledby="addProjectModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold" id="addProjectModalLabel">Add New Project</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
           <div class="modal-body">
-            <div class="row g-3">
-              <div class="col-md-8">
-                <label for="projectTitleInput" class="form-label">Project Title <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="projectTitleInput" placeholder="e.g. HealthGuard AI" required>
+            <form id="addProject">
+              <div class="mb-3">
+                <label for="newProjectTitle" class="form-label">Project Title</label>
+                <input type="text" class="form-control" id="newProjectTitle" name="projectTitle" placeholder="e.g. AI Portfolio Generator" />
               </div>
-              <div class="col-md-4">
-                <label for="projectStatusSelect" class="form-label">Status</label>
-                <select class="form-select" id="projectStatusSelect">
-                  <option value="Completed">Completed</option>
-                  <option value="Ongoing">Ongoing</option>
-                </select>
+              <div class="mb-3">
+                <label for="newTechStack" class="form-label">Tech Stack (comma separated)</label>
+                <input type="text" class="form-control" id="newTechStack" name="techStack" placeholder="React, Node, Python, FastAPI" />
               </div>
-
-              <div class="col-md-8">
-                <label for="projectImageInput" class="form-label">Project Image Path or URL</label>
-                <input type="text" class="form-control" id="projectImageInput" placeholder="image.jpg or https://...">
-                <small class="text-muted">Enter path (e.g. <code>image.jpg</code>) or a direct web image link.</small>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="newLiveLink" class="form-label">Live Demo URL</label>
+                  <input type="url" class="form-control" id="newLiveLink" name="liveLink" placeholder="https://demo.com" />
+                </div>
+                <div class="col-md-6">
+                  <label for="newGithubLink" class="form-label">GitHub Repository URL</label>
+                  <input type="url" class="form-control" id="newGithubLink" name="githubLink" placeholder="https://github.com/..." />
+                </div>
               </div>
-              <div class="col-md-4">
-                <label for="projectOrderInput" class="form-label">Display Order</label>
-                <input type="number" class="form-control" id="projectOrderInput" value="1" min="1">
+              <div class="mb-3">
+                <label for="newProjectPoints" class="form-label">Bullet Points (one per line)</label>
+                <textarea class="form-control" id="newProjectPoints" name="projectPoints" rows="4" placeholder="- Key feature 1&#10;- Architecture details&#10;- Metrics achieved"></textarea>
               </div>
-
-              <div class="col-12">
-                <label for="projectShortDescInput" class="form-label">Short Summary</label>
-                <input type="text" class="form-control" id="projectShortDescInput" placeholder="Brief one-line overview...">
-              </div>
-
-              <div class="col-12">
-                <label for="projectDescInput" class="form-label">Full Description <span class="text-danger">*</span></label>
-                <textarea class="form-control" id="projectDescInput" rows="4" placeholder="Detailed explanation of features, architecture, and outcomes..." required></textarea>
-              </div>
-
-              <div class="col-12">
-                <label for="projectTechInput" class="form-label">Technologies (Comma separated)</label>
-                <input type="text" class="form-control" id="projectTechInput" placeholder="React, TypeScript, Node.js, Tailwind CSS">
-              </div>
-
-              <div class="col-md-6">
-                <label for="projectGithubInput" class="form-label">GitHub Repository Link</label>
-                <input type="url" class="form-control" id="projectGithubInput" placeholder="https://github.com/Krish130910/...">
-              </div>
-              <div class="col-md-6">
-                <label for="projectLiveInput" class="form-label">Live Demo / Action Link</label>
-                <input type="text" class="form-control" id="projectLiveInput" placeholder="#contact or https://...">
-              </div>
-            </div>
+            </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-admin-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-admin-primary">Save Project</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" form="addProject" class="btn btn-primary">Save Project</button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/js/portfolio-data.js"></script>
-  <script src="../assets/js/portfolio-store.js"></script>
-  <script src="../assets/js/admin.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      AdminUI.init("projects");
-
-      const tbody = document.getElementById("projectsTableBody");
-      const projectModalEl = document.getElementById("projectModal");
-      const projectModal = new bootstrap.Modal(projectModalEl);
-      const projectForm = document.getElementById("projectForm");
-      const countLabel = document.getElementById("projectCountLabel");
-
-      const idInput = document.getElementById("projectIdInput");
-      const titleInput = document.getElementById("projectTitleInput");
-      const statusSelect = document.getElementById("projectStatusSelect");
-      const imageInput = document.getElementById("projectImageInput");
-      const orderInput = document.getElementById("projectOrderInput");
-      const shortDescInput = document.getElementById("projectShortDescInput");
-      const descInput = document.getElementById("projectDescInput");
-      const techInput = document.getElementById("projectTechInput");
-      const githubInput = document.getElementById("projectGithubInput");
-      const liveInput = document.getElementById("projectLiveInput");
-
-      const searchInput = document.getElementById("projectSearchInput");
-      const filterSelect = document.getElementById("statusFilterSelect");
-
-      function renderProjects() {
-        const query = searchInput.value.toLowerCase().trim();
-        const statusFilter = filterSelect.value;
-        let projects = PortfolioStore.getProjects();
-
-        if (statusFilter !== "all") {
-          projects = projects.filter(p => p.status === statusFilter);
-        }
-
-        if (query) {
-          projects = projects.filter(p => {
-            const matchTitle = (p.title || "").toLowerCase().includes(query);
-            const matchDesc = (p.description || "").toLowerCase().includes(query);
-            const matchTech = (p.tech || []).some(t => t.toLowerCase().includes(query));
-            return matchTitle || matchDesc || matchTech;
-          });
-        }
-
-        countLabel.textContent = projects.length;
-
-        if (projects.length === 0) {
-          tbody.innerHTML = `
-            <tr>
-              <td colspan="6" class="text-center py-5 text-muted">
-                <i class="bi bi-folder-x fs-1 d-block mb-2"></i>
-                No projects matched your criteria.
-              </td>
-            </tr>
-          `;
-          return;
-        }
-
-        tbody.innerHTML = projects.map(p => {
-          const statusBadge = p.status === "Completed"
-            ? '<span class="badge-status badge-status-completed">Completed</span>'
-            : '<span class="badge-status badge-status-ongoing">Ongoing</span>';
-
-          const techBadges = (p.tech || []).map(t => 
-            `<span class="badge bg-light text-dark border me-1">${t}</span>`
-          ).join("");
-
-          const githubLink = p.github 
-            ? `<a href="${p.github}" target="_blank" class="btn btn-sm btn-outline-secondary py-0 px-2" title="GitHub"><i class="bi bi-github"></i></a>`
-            : '';
-
-          const liveLink = p.link
-            ? `<a href="${p.link}" target="_blank" class="btn btn-sm btn-outline-primary py-0 px-2" title="Live/Demo"><i class="bi bi-box-arrow-up-right"></i></a>`
-            : '';
-
-          return `
-            <tr>
-              <td class="text-muted small fw-bold">${p.order || 1}</td>
-              <td>
-                <div class="d-flex align-items-center gap-3">
-                  <div class="rounded-2 bg-light border d-flex align-items-center justify-content-center text-muted overflow-hidden flex-shrink-0" style="width: 50px; height: 50px;">
-                    <img src="../${p.image || 'image.jpg'}" alt="${p.title}" class="w-100 h-100 object-fit-cover" onerror="this.src='../image.jpg'">
-                  </div>
-                  <div>
-                    <div class="fw-bold text-dark">${p.title}</div>
-                    <small class="text-muted text-truncate d-block" style="max-width: 280px;">${p.shortDesc || p.description || ''}</small>
-                  </div>
+    <!-- Edit Project Modal -->
+    <div class="modal fade" id="editProjectModal" tabindex="-1" aria-labelledby="editProjectModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold" id="editProjectModalLabel">Edit Project</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="editProject">
+              <div class="mb-3">
+                <label for="editProjectTitle" class="form-label">Project Title</label>
+                <input type="text" class="form-control" id="editProjectTitle" name="projectTitle" value="HealthGuard AI" />
+              </div>
+              <div class="mb-3">
+                <label for="editTechStack" class="form-label">Tech Stack (comma separated)</label>
+                <input type="text" class="form-control" id="editTechStack" name="techStack" value="React, TypeScript, Tailwind CSS, Firebase" />
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="editLiveLink" class="form-label">Live Demo URL</label>
+                  <input type="url" class="form-control" id="editLiveLink" name="liveLink" value="https://healthguard-ai.vercel.app" />
                 </div>
-              </td>
-              <td><div class="d-flex flex-wrap gap-1" style="max-width: 220px;">${techBadges}</div></td>
-              <td>${statusBadge}</td>
-              <td>
-                <div class="d-flex gap-1">
-                  ${githubLink}
-                  ${liveLink}
+                <div class="col-md-6">
+                  <label for="editGithubLink" class="form-label">GitHub Repository URL</label>
+                  <input type="url" class="form-control" id="editGithubLink" name="githubLink" value="https://github.com/Krish130910/HealthGuard-AI" />
                 </div>
-              </td>
-              <td class="text-end">
-                <div class="btn-group btn-group-sm">
-                  <button type="button" class="btn btn-outline-secondary edit-proj-btn" data-id="${p.id}" title="Edit">
-                    <i class="bi bi-pencil"></i>
-                  </button>
-                  <button type="button" class="btn btn-outline-danger delete-proj-btn" data-id="${p.id}" title="Delete">
-                    <i class="bi bi-trash"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-          `;
-        }).join("");
+              </div>
+              <div class="mb-3">
+                <label for="editProjectPoints" class="form-label">Bullet Points (one per line)</label>
+                <textarea class="form-control" id="editProjectPoints" name="projectPoints" rows="4">Full-stack preventive healthcare web platform
+AI-driven risk assessment with fail-safe responses
+Health tracking dashboard &amp; progress report generation</textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" form="editProject" class="btn btn-primary">Update Project</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        // Attach action events
-        document.querySelectorAll(".edit-proj-btn").forEach(btn => {
-          btn.addEventListener("click", () => {
-            const id = btn.getAttribute("data-id");
-            const p = PortfolioStore.getProject(id);
-            if (p) {
-              idInput.value = p.id;
-              titleInput.value = p.title || "";
-              statusSelect.value = p.status || "Completed";
-              imageInput.value = p.image || "image.jpg";
-              orderInput.value = p.order || 1;
-              shortDescInput.value = p.shortDesc || "";
-              descInput.value = p.description || "";
-              techInput.value = (p.tech || []).join(", ");
-              githubInput.value = p.github || "";
-              liveInput.value = p.link || "#contact";
-              document.getElementById("projectModalTitle").textContent = "Edit Project";
-              projectModal.show();
-            }
-          });
-        });
+    <!-- Delete Project Modal -->
+    <div class="modal fade" id="deleteProjectModal" tabindex="-1" aria-labelledby="deleteProjectModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold text-danger" id="deleteProjectModalLabel">Delete Project</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete this project from your portfolio?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger" id="confirmDeleteProjectBtn">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        document.querySelectorAll(".delete-proj-btn").forEach(btn => {
-          btn.addEventListener("click", () => {
-            const id = btn.getAttribute("data-id");
-            const p = PortfolioStore.getProject(id);
-            AdminUI.confirmAction({
-              title: "Delete Project?",
-              message: `Are you sure you want to delete "${p?.title || 'this project'}"?`,
-              confirmBtnText: "Delete Project",
-              confirmBtnClass: "btn-danger",
-              onConfirm: () => {
-                PortfolioStore.deleteProject(id);
-                renderProjects();
-                AdminUI.showToast("Project deleted successfully", "success");
-              }
-            });
-          });
-        });
-      }
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer-admin">
+      <div class="container text-center">
+        <p class="mb-1">
+          <a href="https://github.com/Krish130910" class="text-decoration-none text-muted" target="_blank">GitHub</a> |
+          <a href="https://www.linkedin.com/in/krish-savaliya-5a139a31a/" class="text-decoration-none text-muted" target="_blank">LinkedIn</a> |
+          <a href="mailto:krishsavaliya018@gmail.com" class="text-decoration-none text-muted">Email</a>
+        </p>
+        <small class="text-muted">&copy; 2026 Krish Savaliya | Department of Information Technology</small>
+      </div>
+    </footer>
 
-      // Add Project
-      document.getElementById("openAddProjectModalBtn").addEventListener("click", () => {
-        idInput.value = "";
-        projectForm.reset();
-        orderInput.value = PortfolioStore.getProjects().length + 1;
-        imageInput.value = "image.jpg";
-        document.getElementById("projectModalTitle").textContent = "Add New Project";
-        projectModal.show();
-      });
-
-      // Form Submit
-      projectForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const id = idInput.value;
-        const techs = techInput.value
-          .split(",")
-          .map(t => t.trim())
-          .filter(t => t.length > 0);
-
-        const projectData = {
-          id: id || undefined,
-          title: titleInput.value.trim(),
-          status: statusSelect.value,
-          image: imageInput.value.trim() || "image.jpg",
-          order: parseInt(orderInput.value) || 1,
-          shortDesc: shortDescInput.value.trim(),
-          description: descInput.value.trim(),
-          tech: techs,
-          github: githubInput.value.trim(),
-          link: liveInput.value.trim() || "#contact"
-        };
-
-        PortfolioStore.saveProject(projectData);
-        projectModal.hide();
-        renderProjects();
-        AdminUI.showToast("Project saved successfully!", "success");
-      });
-
-      // Filter events
-      searchInput.addEventListener("input", renderProjects);
-      filterSelect.addEventListener("change", renderProjects);
-
-      renderProjects();
-    });
-  </script>
-</body>
+    <!-- Bootstrap Bundle JS & Admin JS -->
+    <script src="../bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../js/admin.js"></script>
+  </body>
 </html>

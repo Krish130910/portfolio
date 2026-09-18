@@ -1,391 +1,248 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard | Krish Savaliya Portfolio Admin</title>
-  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="../assets/css/admin.css">
-</head>
-<body class="admin-body">
-  <div class="admin-wrapper">
-    
-    <!-- Sidebar -->
-    <aside class="admin-sidebar">
-      <div class="sidebar-brand">
-        <div class="brand-badge">KS</div>
-        <div class="brand-info">
-          <h6 class="brand-title">Krish Savaliya</h6>
-          <p class="brand-subtitle">Portfolio CMS</p>
-        </div>
-      </div>
-      <div class="sidebar-nav">
-        <div class="nav-section-title">Overview</div>
-        <a href="index.html" class="sidebar-link active" data-page="dashboard">
-          <i class="bi bi-grid-fill"></i>
-          <span>Dashboard</span>
-        </a>
-        
-        <div class="nav-section-title">Content Sections</div>
-        <a href="profile.html" class="sidebar-link" data-page="profile">
-          <i class="bi bi-person-bounding-box"></i>
-          <span>Hero &amp; About</span>
-        </a>
-        <a href="skills.html" class="sidebar-link" data-page="skills">
-          <i class="bi bi-tools"></i>
-          <span>Skills &amp; Tech</span>
-        </a>
-        <a href="projects.html" class="sidebar-link" data-page="projects">
-          <i class="bi bi-folder-fill"></i>
-          <span>Projects</span>
-        </a>
-        <a href="experience.html" class="sidebar-link" data-page="experience">
-          <i class="bi bi-briefcase-fill"></i>
-          <span>Experience</span>
-        </a>
-        <a href="certifications.html" class="sidebar-link" data-page="certifications">
-          <i class="bi bi-patch-check-fill"></i>
-          <span>Certifications</span>
-        </a>
-        <a href="testimonials.html" class="sidebar-link" data-page="testimonials">
-          <i class="bi bi-chat-quote-fill"></i>
-          <span>Testimonials</span>
-        </a>
-
-        <div class="nav-section-title">Communication &amp; Files</div>
-        <a href="messages.html" class="sidebar-link" data-page="messages">
-          <i class="bi bi-envelope-fill"></i>
-          <span>Messages</span>
-          <span class="badge bg-danger rounded-pill ms-auto badge-messages-count d-none">0</span>
-        </a>
-        <a href="resume.html" class="sidebar-link" data-page="resume">
-          <i class="bi bi-file-earmark-pdf-fill"></i>
-          <span>Resume</span>
-        </a>
-
-        <div class="nav-section-title">Configuration</div>
-        <a href="settings.html" class="sidebar-link" data-page="settings">
-          <i class="bi bi-gear-fill"></i>
-          <span>Site Settings</span>
-        </a>
-      </div>
-      <div class="sidebar-footer">
-        <a href="../index.html" target="_blank" class="btn btn-outline-light w-100 btn-sm d-flex align-items-center justify-content-center gap-2 py-2">
-          <i class="bi bi-box-arrow-up-right"></i>
-          <span>View Live Site</span>
-        </a>
-      </div>
-    </aside>
-
-    <!-- Main Container -->
-    <div class="admin-main">
-      <!-- Topbar -->
-      <header class="admin-topbar">
-        <div class="topbar-left">
-          <button class="btn btn-icon d-lg-none" id="sidebarToggleBtn" aria-label="Toggle Navigation">
-            <i class="bi bi-list fs-5"></i>
-          </button>
-          <h1 class="topbar-title">Dashboard Overview</h1>
-        </div>
-        <div class="topbar-right">
-          <a href="messages.html" class="btn-icon text-decoration-none" title="Messages">
-            <i class="bi bi-bell"></i>
-            <span class="badge-dot-notification d-none" id="topbarMessageDot"></span>
-          </a>
-          <div class="dropdown">
-            <a href="#" class="user-avatar-pill dropdown-toggle text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
-              <div class="user-avatar-img">KS</div>
-              <span class="user-avatar-name" id="adminUserName">Krish Savaliya</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - Portfolio Admin</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+    <style>
+      body {
+        background-color: #faf8f5;
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        color: #24201d;
+      }
+      .admin-nav {
+        background-color: #24201d !important;
+      }
+      .admin-nav .navbar-brand,
+      .admin-nav .nav-link {
+        color: #ede8d8 !important;
+      }
+      .admin-nav .nav-link:hover,
+      .admin-nav .nav-link.active {
+        color: #ed7c25 !important;
+        font-weight: 600;
+      }
+      .admin-card {
+        border-radius: 10px;
+        border: 1px solid #e7ddd3;
+        background-color: #ffffff;
+        box-shadow: 0 4px 12px rgba(76, 48, 25, 0.05);
+      }
+      .footer-admin {
+        margin-top: 60px;
+        padding: 24px 0;
+        background-color: #ffffff;
+        border-top: 1px solid #e7ddd3;
+      }
+      .btn-primary {
+        background-color: #ed7c25;
+        border-color: #ed7c25;
+      }
+      .btn-primary:hover {
+        background-color: #bd5712;
+        border-color: #bd5712;
+      }
+      .btn-outline-primary {
+        color: #ed7c25;
+        border-color: #ed7c25;
+      }
+      .btn-outline-primary:hover {
+        background-color: #ed7c25;
+        border-color: #ed7c25;
+        color: #ffffff;
+      }
+      .badge-orange {
+        background-color: #ed7c25;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===================== ADMIN NAVBAR ===================== -->
+    <nav class="navbar navbar-expand-lg admin-nav sticky-top">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand fw-bold" href="index.html">Portfolio Admin</a>
+        <button
+          class="navbar-toggler bg-light"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#adminNavbar"
+          aria-controls="adminNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="adminNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="skills.html">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="projects.html">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="experience.html">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="certifications.html">Certifications</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="testimonials.html">Testimonials</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Messages</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center gap-2">
+            <a href="../index.html" target="_blank" class="btn btn-outline-light btn-sm">
+              View Portfolio
             </a>
-            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
-              <li class="px-3 py-2 border-bottom">
-                <p class="mb-0 fw-bold small">Krish Savaliya</p>
-                <p class="mb-0 text-muted small">Super Admin</p>
-              </li>
-              <li><a class="dropdown-item py-2 small" href="settings.html"><i class="bi bi-gear me-2"></i> Settings</a></li>
-              <li><a class="dropdown-item py-2 small" href="../index.html" target="_blank"><i class="bi bi-box-arrow-up-right me-2"></i> View Live Site</a></li>
-              <li><hr class="dropdown-divider my-1"></li>
-              <li><a class="dropdown-item py-2 small text-danger" href="#" id="adminLogoutBtn"><i class="bi bi-box-arrow-right me-2"></i> Sign Out</a></li>
-            </ul>
           </div>
         </div>
-      </header>
+      </div>
+    </nav>
 
-      <!-- Page Content -->
-      <main class="admin-content">
-        <!-- Welcome Banner -->
-        <div class="card-custom p-4 mb-4 border-0" style="background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);">
-          <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
-            <div>
-              <h4 class="fw-bold text-dark mb-1">Welcome back, Krish! 👋</h4>
-              <p class="text-muted mb-0">Manage all portfolio projects, skill tags, experience, and contact inquiries in one place.</p>
-            </div>
-            <div class="d-flex gap-2">
-              <a href="../index.html" target="_blank" class="btn btn-outline-dark btn-sm rounded-pill px-3 py-2">
-                <i class="bi bi-eye me-1"></i> Preview Portfolio
-              </a>
-              <a href="projects.html" class="btn btn-admin-primary btn-sm rounded-pill px-3 py-2">
-                <i class="bi bi-plus-lg me-1"></i> New Project
-              </a>
-            </div>
+    <!-- ===================== DASHBOARD CONTENT ===================== -->
+    <div class="container my-4">
+      <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <div>
+          <h2 class="fw-bold mb-1" style="color: #24201d;">Admin Dashboard</h2>
+          <p class="text-muted mb-0">Overview and content management for Krish Savaliya's Portfolio.</p>
+        </div>
+        <span class="badge bg-secondary p-2">Status: Active</span>
+      </div>
+
+      <!-- Stats Counters Grid -->
+      <div class="row g-3 mb-4">
+        <div class="col-md">
+          <div class="card admin-card text-center p-3">
+            <h6 class="text-muted mb-2">Projects</h6>
+            <h3 class="fw-bold text-primary mb-1">3</h3>
+            <span class="badge bg-primary">Featured Work</span>
           </div>
         </div>
-
-        <!-- Metric Stat Cards Grid -->
-        <div class="row g-3 mb-4">
-          <div class="col-sm-6 col-xl-3">
-            <div class="stat-card">
-              <div>
-                <div class="stat-label">Projects</div>
-                <h3 class="stat-value" id="statProjects">0</h3>
-                <small class="text-muted"><a href="projects.html" class="text-decoration-none text-muted">Manage items &rarr;</a></small>
-              </div>
-              <div class="stat-icon-wrapper stat-icon-orange">
-                <i class="bi bi-folder2-open"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-6 col-xl-3">
-            <div class="stat-card">
-              <div>
-                <div class="stat-label">Skills &amp; Tech</div>
-                <h3 class="stat-value" id="statSkills">0</h3>
-                <small class="text-muted"><span id="statSkillCategories">0</span> categories</small>
-              </div>
-              <div class="stat-icon-wrapper stat-icon-blue">
-                <i class="bi bi-tools"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-6 col-xl-3">
-            <div class="stat-card">
-              <div>
-                <div class="stat-label">Experience</div>
-                <h3 class="stat-value" id="statExperience">0</h3>
-                <small class="text-muted"><a href="experience.html" class="text-decoration-none text-muted">View timeline &rarr;</a></small>
-              </div>
-              <div class="stat-icon-wrapper stat-icon-purple">
-                <i class="bi bi-briefcase"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-6 col-xl-3">
-            <div class="stat-card">
-              <div>
-                <div class="stat-label">Inquiries</div>
-                <h3 class="stat-value" id="statMessages">0</h3>
-                <small class="text-danger fw-bold"><span id="statUnreadMessages">0</span> unread</small>
-              </div>
-              <div class="stat-icon-wrapper stat-icon-rose">
-                <i class="bi bi-envelope"></i>
-              </div>
-            </div>
+        <div class="col-md">
+          <div class="card admin-card text-center p-3">
+            <h6 class="text-muted mb-2">Skills</h6>
+            <h3 class="fw-bold text-success mb-1">15</h3>
+            <span class="badge bg-success">Technologies</span>
           </div>
         </div>
-
-        <div class="row g-3 mb-4">
-          <div class="col-sm-6 col-xl-3">
-            <div class="stat-card">
-              <div>
-                <div class="stat-label">Certifications</div>
-                <h3 class="stat-value" id="statCertifications">0</h3>
-                <small class="text-muted"><a href="certifications.html" class="text-decoration-none text-muted">View credentials &rarr;</a></small>
-              </div>
-              <div class="stat-icon-wrapper stat-icon-green">
-                <i class="bi bi-patch-check"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-6 col-xl-3">
-            <div class="stat-card">
-              <div>
-                <div class="stat-label">Testimonials</div>
-                <h3 class="stat-value" id="statTestimonials">0</h3>
-                <small class="text-muted"><a href="testimonials.html" class="text-decoration-none text-muted">Manage quotes &rarr;</a></small>
-              </div>
-              <div class="stat-icon-wrapper stat-icon-amber">
-                <i class="bi bi-chat-heart"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-6 col-xl-6">
-            <div class="stat-card d-flex flex-column align-items-start justify-content-center p-3">
-              <div class="w-100 d-flex justify-content-between align-items-center mb-2">
-                <span class="stat-label mb-0">Quick Section Controls</span>
-                <a href="settings.html" class="small text-muted text-decoration-none">All Settings &rarr;</a>
-              </div>
-              <div class="d-flex flex-wrap gap-2 w-100" id="quickSectionBadges">
-                <!-- Dynamically populated -->
-              </div>
-            </div>
+        <div class="col-md">
+          <div class="card admin-card text-center p-3">
+            <h6 class="text-muted mb-2">Experience</h6>
+            <h3 class="fw-bold text-warning mb-1">4</h3>
+            <span class="badge bg-warning text-dark">Activities</span>
           </div>
         </div>
-
-        <!-- Main Content 2-Column Section -->
-        <div class="row g-4">
-          <!-- Recent Projects -->
-          <div class="col-lg-7">
-            <div class="card-custom">
-              <div class="card-header-custom">
-                <h2 class="card-title-custom">
-                  <i class="bi bi-folder-check text-primary"></i>
-                  <span>Recent Projects</span>
-                </h2>
-                <a href="projects.html" class="btn btn-sm btn-outline-secondary">View All</a>
-              </div>
-              <div class="card-body-custom p-0">
-                <div class="table-responsive">
-                  <table class="table table-admin mb-0">
-                    <thead>
-                      <tr>
-                        <th>Project</th>
-                        <th>Tech Stack</th>
-                        <th>Status</th>
-                        <th class="text-end">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody id="recentProjectsTableBody">
-                      <!-- Rendered via JS -->
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Recent Inquiries -->
-          <div class="col-lg-5">
-            <div class="card-custom">
-              <div class="card-header-custom">
-                <h2 class="card-title-custom">
-                  <i class="bi bi-chat-left-dots text-danger"></i>
-                  <span>Recent Messages</span>
-                </h2>
-                <a href="messages.html" class="btn btn-sm btn-outline-secondary">Inbox</a>
-              </div>
-              <div class="card-body-custom p-3" id="recentMessagesContainer">
-                <!-- Rendered via JS -->
-              </div>
-            </div>
+        <div class="col-md">
+          <div class="card admin-card text-center p-3">
+            <h6 class="text-muted mb-2">Certifications</h6>
+            <h3 class="fw-bold text-info mb-1">3</h3>
+            <span class="badge bg-info text-dark">Credentials</span>
           </div>
         </div>
-      </main>
+        <div class="col-md">
+          <div class="card admin-card text-center p-3">
+            <h6 class="text-muted mb-2">Messages</h6>
+            <h3 class="fw-bold text-danger mb-1">3</h3>
+            <span class="badge bg-danger">Inquiries</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portfolio Sections Table -->
+      <div class="card admin-card mb-4">
+        <div class="card-header bg-light py-3">
+          <h5 class="fw-bold mb-0" style="color: #24201d;">Portfolio Sections Management</h5>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th scope="col" class="ps-4">Section Name</th>
+                  <th scope="col">Total Items</th>
+                  <th scope="col">Description</th>
+                  <th scope="col" class="text-end pe-4">Manage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ps-4"><strong>Projects</strong></td>
+                  <td><span class="badge bg-primary">3 Projects</span></td>
+                  <td class="text-muted small">HealthGuard AI, WebTech Portal, ToolVerse SaaS</td>
+                  <td class="text-end pe-4">
+                    <a href="projects.html" class="btn btn-sm btn-outline-primary">Open Section</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ps-4"><strong>Skills</strong></td>
+                  <td><span class="badge bg-success">15 Skills</span></td>
+                  <td class="text-muted small">HTML5, CSS3, JavaScript, Python, FastAPI, OpenCV, Git</td>
+                  <td class="text-end pe-4">
+                    <a href="skills.html" class="btn btn-sm btn-outline-primary">Open Section</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ps-4"><strong>Experience &amp; Activities</strong></td>
+                  <td><span class="badge bg-warning text-dark">4 Entries</span></td>
+                  <td class="text-muted small">Web Technology Coursework, Hackathons, Frontend Labs</td>
+                  <td class="text-end pe-4">
+                    <a href="experience.html" class="btn btn-sm btn-outline-primary">Open Section</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ps-4"><strong>Certifications</strong></td>
+                  <td><span class="badge bg-info text-dark">3 Certificates</span></td>
+                  <td class="text-muted small">Web Tech &amp; HTML5/CSS3, Frontend Architecture, AI/ML</td>
+                  <td class="text-end pe-4">
+                    <a href="certifications.html" class="btn btn-sm btn-outline-primary">Open Section</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ps-4"><strong>Testimonials</strong></td>
+                  <td><span class="badge badge-orange">3 Reviews</span></td>
+                  <td class="text-muted small">Faculty Mentor, Hackathon Team Member, Peer</td>
+                  <td class="text-end pe-4">
+                    <a href="testimonials.html" class="btn btn-sm btn-outline-primary">Open Section</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ps-4"><strong>Contact Messages</strong></td>
+                  <td><span class="badge bg-danger">3 Messages</span></td>
+                  <td class="text-muted small">Collaboration inquiries and project queries</td>
+                  <td class="text-end pe-4">
+                    <a href="contact.html" class="btn btn-sm btn-outline-danger">Open Section</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/js/portfolio-data.js"></script>
-  <script src="../assets/js/portfolio-store.js"></script>
-  <script src="../assets/js/admin.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      AdminUI.init("dashboard");
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer-admin">
+      <div class="container text-center">
+        <p class="mb-1">
+          <a href="https://github.com/Krish130910" class="text-decoration-none text-muted" target="_blank">GitHub</a> |
+          <a href="https://www.linkedin.com/in/krish-savaliya-5a139a31a/" class="text-decoration-none text-muted" target="_blank">LinkedIn</a> |
+          <a href="mailto:krishsavaliya018@gmail.com" class="text-decoration-none text-muted">Email</a>
+        </p>
+        <small class="text-muted">&copy; 2026 Krish Savaliya | Department of Information Technology</small>
+      </div>
+    </footer>
 
-      renderDashboardStats();
-      renderRecentProjects();
-      renderRecentMessages();
-      renderSectionBadges();
-
-      function renderDashboardStats() {
-        const stats = PortfolioStore.getDashboardStats();
-        document.getElementById("statProjects").textContent = stats.projectsCount;
-        document.getElementById("statSkills").textContent = stats.totalSkillsCount;
-        document.getElementById("statSkillCategories").textContent = stats.skillCategoriesCount;
-        document.getElementById("statExperience").textContent = stats.experienceCount;
-        document.getElementById("statCertifications").textContent = stats.certificationsCount;
-        document.getElementById("statTestimonials").textContent = stats.testimonialsCount;
-        document.getElementById("statMessages").textContent = stats.messagesCount;
-        document.getElementById("statUnreadMessages").textContent = stats.unreadMessagesCount;
-      }
-
-      function renderRecentProjects() {
-        const tbody = document.getElementById("recentProjectsTableBody");
-        const projects = PortfolioStore.getProjects().slice(0, 4);
-
-        if (projects.length === 0) {
-          tbody.innerHTML = `<tr><td colspan="4" class="text-center py-4 text-muted">No projects found. <a href="projects.html">Add one</a></td></tr>`;
-          return;
-        }
-
-        tbody.innerHTML = projects.map(p => {
-          const statusBadge = p.status === "Completed" 
-            ? '<span class="badge-status badge-status-completed">Completed</span>'
-            : '<span class="badge-status badge-status-ongoing">Ongoing</span>';
-
-          const techTags = (p.tech || []).slice(0, 2).map(t => 
-            `<span class="badge bg-light text-dark border me-1">${t}</span>`
-          ).join("");
-
-          return `
-            <tr>
-              <td>
-                <div class="d-flex align-items-center gap-2">
-                  <div class="rounded-2 bg-light d-flex align-items-center justify-content-center text-muted border" style="width: 38px; height: 38px;">
-                    <i class="bi bi-image"></i>
-                  </div>
-                  <div>
-                    <div class="fw-bold">${p.title}</div>
-                    <small class="text-muted text-truncate d-block" style="max-width: 180px;">${p.shortDesc || ""}</small>
-                  </div>
-                </div>
-              </td>
-              <td>${techTags}</td>
-              <td>${statusBadge}</td>
-              <td class="text-end">
-                <a href="projects.html" class="btn btn-sm btn-outline-dark rounded-pill px-2 py-1">
-                  <i class="bi bi-pencil"></i>
-                </a>
-              </td>
-            </tr>
-          `;
-        }).join("");
-      }
-
-      function renderRecentMessages() {
-        const container = document.getElementById("recentMessagesContainer");
-        const messages = PortfolioStore.getMessages().slice(0, 4);
-
-        if (messages.length === 0) {
-          container.innerHTML = `<div class="text-center py-4 text-muted small">No contact messages yet.</div>`;
-          return;
-        }
-
-        container.innerHTML = messages.map(m => {
-          const isNew = m.status === "new";
-          return `
-            <div class="p-3 mb-2 rounded-3 border ${isNew ? 'bg-light border-warning-subtle' : 'bg-white'}">
-              <div class="d-flex justify-content-between align-items-start mb-1">
-                <div>
-                  <span class="fw-bold small text-dark">${m.name}</span>
-                  ${isNew ? '<span class="badge bg-danger ms-1" style="font-size: 0.65rem;">NEW</span>' : ''}
-                </div>
-                <small class="text-muted" style="font-size: 0.75rem;">${m.date}</small>
-              </div>
-              <div class="small fw-semibold text-truncate text-secondary mb-1">${m.subject}</div>
-              <p class="small text-muted mb-0 text-truncate">${m.message}</p>
-            </div>
-          `;
-        }).join("");
-      }
-
-      function renderSectionBadges() {
-        const settings = PortfolioStore.getSettings();
-        const sections = settings.sections || {};
-        const container = document.getElementById("quickSectionBadges");
-
-        container.innerHTML = Object.entries(sections).map(([key, visible]) => `
-          <span class="badge ${visible ? 'bg-success-subtle text-success-emphasis border border-success-subtle' : 'bg-secondary-subtle text-secondary border'} rounded-pill px-2 py-1 small">
-            <i class="bi ${visible ? 'bi-check-circle-fill' : 'bi-x-circle'} me-1"></i> ${key.charAt(0).toUpperCase() + key.slice(1)}
-          </span>
-        `).join("");
-      }
-    });
-  </script>
-</body>
+    <!-- Bootstrap Bundle JS & Admin JS -->
+    <script src="../bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../js/admin.js"></script>
+  </body>
 </html>

@@ -7,6 +7,8 @@
   --line: #e7ddd3;
   --accent: #ed7c25;
   --accent-dark: #bd5712;
+  --primary-color: #ed7c25;
+  --primary-hover: #bd5712;
   --shadow: 0 16px 40px rgba(76, 48, 25, 0.08);
 }
 
@@ -523,4 +525,24 @@ section {
     width: 100%;
     margin-bottom: 8px;
   }
+}
+
+.admin-btn-link {
+  border: 1px solid var(--accent) !important;
+  color: var(--accent) !important;
+  border-radius: 6px !important;
+  padding: 4px 10px !important;
+  transition: all 0.2s ease;
+}
+
+.admin-btn-link:hover {
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 4px;
 }

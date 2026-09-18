@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- ===================== NAVIGATION ===================== -->
     <header class="site-header">
       <table class="nav-table" border="0" width="100%" cellpadding="10">
         <tr>
@@ -39,7 +40,7 @@
             &nbsp;&nbsp;
             <a class="nav-link" href="#contact"><b>Contact</b></a>
             &nbsp;&nbsp;
-            <a class="nav-link" href="admin/index.html" style="color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; border-radius: 6px;"><b>Admin Panel</b></a>
+            <a class="nav-link admin-btn-link" href="admin/index.html"><b>Admin Panel</b></a>
           </td>
           <td class="resume-cell" align="center">
             <a href="resume.pdf" download>
@@ -52,6 +53,7 @@
 
     <br /><br />
 
+    <!-- ===================== HERO SECTION ===================== -->
     <section id="hero" class="hero-section">
       <center>
         <h1 class="section-title">Hero Section</h1>
@@ -67,27 +69,13 @@
         <tr>
           <td class="hero-img-cell" width="40%" align="center">
             <div class="hero-img-wrapper">
-              <svg
+              <img
                 class="hero-img"
-                viewBox="0 0 250 250"
-                xmlns="http://www.w3.org/2000/svg"
-                width="250"
-                height="250"
-              >
-                <circle
-                  cx="125"
-                  cy="125"
-                  r="123"
-                  fill="#FFF1E6"
-                  stroke="#FB923C"
-                  stroke-width="4"
-                />
-                <circle cx="125" cy="95" r="38" fill="#FFD4A8" />
-                <path
-                  d="M67 202c0-35 26-59 58-59s58 24 58 59c0 8-6 14-14 14H81c-8 0-14-6-14-14Z"
-                  fill="#FFD4A8"
-                />
-              </svg>
+                src="profile.jpg"
+                alt="Krish Savaliya"
+                width="240"
+                height="240"
+              />
             </div>
           </td>
 
@@ -98,17 +86,14 @@
             </h2>
 
             <p class="hero-bio">
-              Information Technology student with a strong interest in Frontend
-              Development and Artificial Intelligence / Machine Learning.
+              Information Technology student passionate about Web Technology, Frontend
+              Development, Artificial Intelligence, and Machine Learning.
             </p>
 
             <p class="hero-bio">
-              Skilled in building responsive full-stack web applications using
-              React, TypeScript, Node.js, and Express, while exploring machine
-              learning with Python, Scikit-learn, NumPy, Pandas, and OpenCV.
-              Passionate about creating intuitive user experiences and
-              developing AI-powered solutions through hands-on projects and
-              hackathons.
+              Currently pursuing Web Technology (01IT0505) under the Department of Information
+              Technology. Dedicated to building responsive web applications using HTML5, CSS3,
+              Flexbox, Grid, and client-server architectures.
             </p>
 
             <br />
@@ -128,6 +113,7 @@
     <br /><br />
     <hr class="section-divider" />
 
+    <!-- ===================== ABOUT ===================== -->
     <section id="about" class="about-section">
       <center>
         <h1 class="section-title">About Me</h1>
@@ -135,21 +121,23 @@
 
       <div class="about-card">
         <p class="about-text">
-          I am currently pursuing a B.Tech in Information Technology at Marwadi
-          University, with a strong interest in Frontend Development and
-          Artificial Intelligence / Machine Learning.
+          I am currently pursuing a B.Tech in Information Technology at Marwadi University. I am
+          deeply interested in Frontend Web Development, Web Architecture, and Artificial
+          Intelligence / Machine Learning.
         </p>
 
         <p class="about-text">
-          I build responsive full-stack applications using React, TypeScript,
-          Node.js, and Express, and explore machine learning with Python,
-          Scikit-learn, NumPy, Pandas, and OpenCV.
+          Through the Web Technology course (01IT0505) under Prof. Tejas Chauhan, I have mastered
+          core web design principles including User-Centric Design, F-Pattern layouts, Active &amp;
+          Passive White Space, Client-Server HTTP protocols (GET, POST, PUT, DELETE), and DNS
+          resolution workflows.
         </p>
 
         <p class="about-text">
-          I am passionate about creating intuitive user experiences and
-          developing AI-powered solutions through hands-on projects and
-          hackathons.
+          I specialize in constructing well-structured HTML5 documents using semantic elements
+          (&lt;header&gt;, &lt;nav&gt;, &lt;section&gt;, &lt;article&gt;, &lt;aside&gt;,
+          &lt;footer&gt;) and crafting modern, fully responsive CSS3 stylesheets utilizing CSS
+          Variables, Flexbox, Grid layouts, 2D/3D Transforms, and Media Queries.
         </p>
       </div>
     </section>
@@ -157,6 +145,7 @@
     <br /><br />
     <hr class="section-divider" />
 
+    <!-- ===================== SKILLS ===================== -->
     <section id="skills" class="skills-section">
       <center>
         <h1 class="section-title">Skills</h1>
@@ -171,50 +160,50 @@
       >
         <tr class="skills-row">
           <td class="skill-card" width="25%" valign="top">
-            <h2 class="card-title">Frontend Development</h2>
+            <h2 class="card-title">HTML5 &amp; Structure</h2>
             <ul class="skill-list">
-              <li>React.js, Next.js, TypeScript</li>
-              <li>HTML5, CSS3, Tailwind CSS</li>
-              <li>Responsive Web Design</li>
-              <li>Bootstrap and UI Development</li>
-              <li>Reusable Components</li>
-              <li>REST APIs and JWT Authentication</li>
+              <li>HTML5 Semantic Tags</li>
+              <li>XHTML Strict Rules</li>
+              <li>Form Validation Attributes</li>
+              <li>Special Character Entities</li>
+              <li>HTML Multimedia (&lt;video&gt;, &lt;audio&gt;)</li>
+              <li>Iframes &amp; DOCTYPE Standards</li>
             </ul>
           </td>
 
           <td class="skill-card" width="25%" valign="top">
-            <h2 class="card-title">Machine Learning &amp; AI</h2>
+            <h2 class="card-title">CSS3 &amp; Layout Mechanics</h2>
             <ul class="skill-list">
-              <li>Python and Scikit-learn</li>
-              <li>NumPy and Pandas</li>
-              <li>OpenCV and YOLOv8</li>
-              <li>Natural Language Processing</li>
-              <li>Data Preprocessing</li>
-              <li>Model Training &amp; Evaluation</li>
+              <li>CSS Variables (:root &amp; var())</li>
+              <li>Flexbox Layout Mechanics</li>
+              <li>CSS Grid System &amp; fr Units</li>
+              <li>Box Model &amp; Border Radius</li>
+              <li>Positioning (Sticky, Relative, Absolute)</li>
+              <li>Responsive Media Queries</li>
             </ul>
           </td>
 
           <td class="skill-card" width="25%" valign="top">
-            <h2 class="card-title">Databases &amp; Tools</h2>
+            <h2 class="card-title">Visual Effects &amp; Design</h2>
             <ul class="skill-list">
-              <li>MongoDB and MySQL</li>
-              <li>Firebase Firestore</li>
-              <li>Git and GitHub</li>
-              <li>VS Code and Streamlit</li>
-              <li>Figma and Vercel</li>
-              <li>Render and Linux</li>
+              <li>2D &amp; 3D Transforms (rotate, scale)</li>
+              <li>Transitions &amp; Keyframe Animations</li>
+              <li>Linear &amp; Radial Gradients</li>
+              <li>Box-Shadow &amp; Text-Shadow</li>
+              <li>Clip-Path Styling</li>
+              <li>F-Pattern &amp; User-Centric Design</li>
             </ul>
           </td>
 
           <td class="skill-card" width="25%" valign="top">
-            <h2 class="card-title">Core Computer Skills</h2>
+            <h2 class="card-title">Web Protocols &amp; Servers</h2>
             <ul class="skill-list">
-              <li>Data Structures &amp; Algorithms</li>
-              <li>Object-Oriented Programming</li>
-              <li>Database Management Systems</li>
-              <li>Operating Systems</li>
-              <li>Computer Networks</li>
-              <li>Client-Server Architecture</li>
+              <li>HTTP/1.1 &amp; Request Methods (GET, POST)</li>
+              <li>HTTP Response Status Codes (2xx, 4xx, 5xx)</li>
+              <li>Client-Server Architecture &amp; DNS</li>
+              <li>Apache HTTP Server &amp; NGINX</li>
+              <li>WAMP / XAMPP Stack Setup</li>
+              <li>Browser Developer Tools (Inspect Element)</li>
             </ul>
           </td>
         </tr>
@@ -224,6 +213,7 @@
     <br /><br />
     <hr class="section-divider" />
 
+    <!-- ===================== PROJECTS ===================== -->
     <section id="projects" class="projects-section">
       <center>
         <h1 class="section-title">Projects</h1>
@@ -237,6 +227,7 @@
         cellpadding="20"
       >
         <tr class="projects-row">
+          <!-- Project 1 -->
           <td class="project-card" width="33%" valign="top" align="center">
             <img
               class="project-img"
@@ -249,14 +240,13 @@
             <h2 class="card-title">HealthGuard AI</h2>
 
             <p class="project-desc">
-              AI-powered preventive healthcare platform built using React and
-              TypeScript with responsive layouts and reusable UI components.
+              AI-powered preventive healthcare web application built using HTML5 semantic elements,
+              structured form controls, and responsive CSS Grid layout cards.
             </p>
 
             <p class="project-desc">
-              Features health assessment, dashboard, action plans, progress
-              tracking, and report generation for a seamless cross-device
-              experience.
+              Features health assessment questionnaires, progress tracking dashboards, and
+              printable report layouts.
             </p>
 
             <a href="#contact" class="project-link">
@@ -264,6 +254,7 @@
             </a>
           </td>
 
+          <!-- Project 2 -->
           <td class="project-card" width="33%" valign="top" align="center">
             <img
               class="project-img"
@@ -273,17 +264,16 @@
               height="150"
             />
 
-            <h2 class="card-title">ToolVerse (Ongoing)</h2>
+            <h2 class="card-title">WebTech Course Portal</h2>
 
             <p class="project-desc">
-              Modern privacy-first SaaS platform featuring 20+ browser-based and
-              AI-powered developer utilities for coding, PDF, image processing,
-              security, and productivity.
+              Educational web portal designed for Marwadi University IT Department (01IT0505)
+              covering Client-Server Architecture, DNS Resolution, and HTTP Protocols.
             </p>
 
             <p class="project-desc">
-              Built using Next.js, TypeScript, and Tailwind CSS with reusable
-              components and a responsive user experience.
+              Built with structured HTML tables, CSS flexbox navigation, and interactive code
+              examples.
             </p>
 
             <a href="#contact" class="project-link">
@@ -291,6 +281,7 @@
             </a>
           </td>
 
+          <!-- Project 3 -->
           <td class="project-card" width="33%" valign="top" align="center">
             <img
               class="project-img"
@@ -300,19 +291,16 @@
               height="150"
             />
 
-            <h2 class="card-title">
-              GazeGuardian - Driver Drowsiness Detection
-            </h2>
+            <h2 class="card-title">ToolVerse</h2>
 
             <p class="project-desc">
-              Real-time computer vision application that detects driver
-              drowsiness using Eye Aspect Ratio (EAR) and facial landmark
-              analysis.
+              Privacy-first browser-based developer platform featuring 33+ web utility tools, color
+              palette generators, and QR code tools.
             </p>
 
             <p class="project-desc">
-              Built with Python, OpenCV, MediaPipe, and NumPy to trigger alerts
-              and improve road safety.
+              Designed with ToolVerse's signature warm cream aesthetic, CSS variables, and 2D hover
+              transforms.
             </p>
 
             <a href="#contact" class="project-link">
@@ -326,6 +314,7 @@
     <br /><br />
     <hr class="section-divider" />
 
+    <!-- ===================== EXPERIENCE ===================== -->
     <section id="experience" class="experience-section">
       <center>
         <h1 class="section-title">Experience</h1>
@@ -340,90 +329,52 @@
       >
         <tr class="experience-row">
           <td class="experience-card" width="50%" valign="top">
-            <h2 class="card-title">Smart Crowd Behavior Monitoring System</h2>
-            <h4 class="card-subtitle">
-              Python | OpenCV | YOLOv8 | PyTorch | NumPy
-            </h4>
+            <h2 class="card-title">Web Technology (01IT0505)</h2>
+            <h4 class="card-subtitle">Marwadi University | 2026</h4>
 
             <ul class="experience-list">
-              <li>
-                Developed a real-time crowd monitoring system using YOLOv8 and
-                OpenCV.
-              </li>
-              <li>
-                Detects people, estimates crowd density, and analyzes movement
-                patterns.
-              </li>
-              <li>
-                Identifies overcrowding scenarios for enhanced public safety.
-              </li>
+              <li>Mastered Unit 1 (Web Design Principles, HTTP, Client-Server Architecture).</li>
+              <li>Mastered Unit 2 (HTML5 Structure, CSS3 Flexbox, Grid, Transforms &amp; Media Queries).</li>
+              <li>Implemented semantic HTML pages adhering to XHTML strict validation standards.</li>
+              <li>Designed user-centric layouts following the F-Pattern and white space principles.</li>
             </ul>
           </td>
 
           <td class="experience-card" width="50%" valign="top">
-            <h2 class="card-title">Fire &amp; Smoke Detection System</h2>
-            <h4 class="card-subtitle">
-              Python | OpenCV | YOLOv8 | PyTorch | NumPy
-            </h4>
+            <h2 class="card-title">National Level Hackathons</h2>
+            <h4 class="card-subtitle">2024 - Present</h4>
 
             <ul class="experience-list">
-              <li>
-                Developed a real-time fire and smoke detection system using
-                YOLOv8 and OpenCV.
-              </li>
-              <li>
-                Identifies fire hazards from live video streams for early
-                warning.
-              </li>
-              <li>
-                Designed for surveillance and practical safety applications.
-              </li>
+              <li>Participated in 7 National Level Hackathons across India.</li>
+              <li>Qualified for final rounds in multiple high-stakes competitions.</li>
+              <li>Collaborated with teams to rapidly prototype AI/ML and Web applications.</li>
+              <li>Enhanced problem-solving, UI presentation, and teamwork skills.</li>
             </ul>
           </td>
         </tr>
 
         <tr class="experience-row">
           <td class="experience-card" width="50%" valign="top">
-            <h2 class="card-title">National Level Hackathons</h2>
-            <h4 class="card-subtitle">2024 - Present</h4>
+            <h2 class="card-title">Frontend Web Development</h2>
+            <h4 class="card-subtitle">Personal Projects &amp; Lab Work</h4>
 
             <ul class="experience-list">
-              <li>Participated in 7 national-level hackathons across India.</li>
-              <li>Qualified for final rounds in multiple competitions.</li>
-              <li>
-                Collaborated with teams to build AI/ML and full-stack web
-                applications.
-              </li>
-              <li>
-                Improved teamwork, UI presentation, and rapid prototyping
-                skills.
-              </li>
+              <li>Developing responsive web interfaces using pure HTML5 and CSS3.</li>
+              <li>Building reusable UI card structures and form controls with CSS variables.</li>
+              <li>Styling interactive navigation headers, pseudo-classes, and hover states.</li>
+              <li>Optimizing layouts for mobile, tablet, and desktop viewports via @media queries.</li>
             </ul>
           </td>
 
           <td class="experience-card" width="50%" valign="top">
-            <h2 class="card-title">B.Tech in Information Technology</h2>
-            <h4 class="card-subtitle">
-              Marwadi University | CPI: 7.08/10 | 2024 - 2028
-            </h4>
+            <h2 class="card-title">Web Servers &amp; Architecture</h2>
+            <h4 class="card-subtitle">Practical Exploration</h4>
 
             <ul class="experience-list">
-              <li>
-                Focused on modern web technologies, full-stack development, and
-                software engineering practices.
-              </li>
-              <li>
-                Built foundational knowledge in web design, HTTP, client-server
-                architecture, and responsive UI design.
-              </li>
-              <li>
-                Developed projects using semantic HTML5, CSS3, JavaScript, and
-                React with TypeScript.
-              </li>
-              <li>
-                Practiced problem-solving through coursework, labs, and
-                hackathon participation.
-              </li>
+              <li>Configured Apache HTTP Server and XAMPP local environment setups.</li>
+              <li>Explored HTTP request/response lifecycles, GET/POST methods, and status codes.</li>
+              <li>Studied NGINX event-driven architecture and IIS web server deployments.</li>
+              <li>Utilized browser inspection tools to audit DOM elements and CSS box models.</li>
             </ul>
           </td>
         </tr>
@@ -433,6 +384,7 @@
     <br /><br />
     <hr class="section-divider" />
 
+    <!-- ===================== CERTIFICATIONS ===================== -->
     <section id="certifications" class="certifications-section">
       <center>
         <h1 class="section-title">Certifications</h1>
@@ -447,27 +399,26 @@
       >
         <tr class="certifications-row">
           <td class="certification-card" width="33%" valign="top">
-            <h2 class="card-title">Frontend Development</h2>
+            <h2 class="card-title">Web Technology &amp; HTML5/CSS3</h2>
             <p class="certification-desc">
-              Building responsive interfaces with React, Next.js, TypeScript,
-              Tailwind CSS, Bootstrap, and reusable UI components.
+              Completed coursework and lab practicals in Web Technology (01IT0505) covering HTML5,
+              CSS3 Grid/Flexbox, HTTP protocols, and Web Design Principles.
+            </p>
+          </td>
+
+          <td class="certification-card" width="33%" valign="top">
+            <h2 class="card-title">Frontend Web Architecture</h2>
+            <p class="certification-desc">
+              Hands-on certification in responsive web design, CSS variables, 2D/3D transformations,
+              XHTML validation, and browser compatibility.
             </p>
           </td>
 
           <td class="certification-card" width="33%" valign="top">
             <h2 class="card-title">Artificial Intelligence &amp; ML</h2>
             <p class="certification-desc">
-              Developing practical skills in Python, Scikit-learn, Pandas,
-              NumPy, OpenCV, YOLOv8, and model training and evaluation.
-            </p>
-          </td>
-
-          <td class="certification-card" width="33%" valign="top">
-            <h2 class="card-title">Tools &amp; Core Skills</h2>
-            <p class="certification-desc">
-              Experienced with MongoDB, Firebase, MySQL, Git, GitHub, VS Code,
-              Streamlit, Figma, Vercel, Render, Linux, and core computer science
-              subjects.
+              Pursuing practical learning and certifications in Python, Machine Learning models,
+              Scikit-learn, and OpenCV computer vision applications.
             </p>
           </td>
         </tr>
@@ -477,6 +428,7 @@
     <br /><br />
     <hr class="section-divider" />
 
+    <!-- ===================== TESTIMONIALS ===================== -->
     <section id="testimonials" class="testimonials-section">
       <center>
         <h1 class="section-title">Testimonials</h1>
@@ -491,36 +443,28 @@
       >
         <tr class="testimonials-row">
           <td class="testimonial-card" width="33%" valign="top">
-            <div class="testimonial-stars" aria-label="5 out of 5 stars">
-              ★★★★★
-            </div>
             <p class="testimonial-quote">
-              &quot;Krish is a hardworking and dedicated student who always
-              gives his best.&quot;
+              &quot;Krish is an enthusiastic student with strong problem-solving skills in Web
+              Technology. He consistently builds well-structured HTML and CSS projects adhering to
+              web standards.&quot;
             </p>
-            <b class="testimonial-author">— Faculty Member</b>
+            <b class="testimonial-author">— Faculty Mentor (Dept. of IT)</b>
           </td>
 
           <td class="testimonial-card" width="33%" valign="top">
-            <div class="testimonial-stars" aria-label="5 out of 5 stars">
-              ★★★★★
-            </div>
             <p class="testimonial-quote">
-              &quot;Excellent team player with good technical knowledge and
-              strong problem-solving skills.&quot;
+              &quot;An excellent teammate who communicates effectively and contributes clean,
+              responsive UI layouts during national hackathons.&quot;
             </p>
-            <b class="testimonial-author">— Team Member</b>
+            <b class="testimonial-author">— Hackathon Team Member</b>
           </td>
 
           <td class="testimonial-card" width="33%" valign="top">
-            <div class="testimonial-stars" aria-label="5 out of 5 stars">
-              ★★★★★
-            </div>
             <p class="testimonial-quote">
-              &quot;Creative, enthusiastic and always ready to learn new
-              technologies.&quot;
+              &quot;Dedicated, creative, and passionate about Frontend Web Development, Artificial
+              Intelligence, and building intuitive user experiences.&quot;
             </p>
-            <b class="testimonial-author">— Friend</b>
+            <b class="testimonial-author">— Peer</b>
           </td>
         </tr>
       </table>
@@ -529,12 +473,17 @@
     <br /><br />
     <hr class="section-divider" />
 
+    <!-- ===================== CONTACT ===================== -->
     <section id="contact" class="contact-section">
       <center>
         <h1 class="section-title">Contact Me</h1>
       </center>
 
-      <form class="contact-form" action="#" method="post">
+      <form class="contact-form" id="contactForm" action="#" method="post" novalidate>
+        <div id="formSuccessAlert" style="display: none; padding: 12px; margin-bottom: 15px; border-radius: 8px; background-color: #d1e7dd; color: #0f5132; border: 1px solid #badbcc; text-align: center; font-weight: 600;">
+          Thank you! Your message has been sent successfully.
+        </div>
+
         <table
           class="contact-table"
           width="60%"
@@ -548,9 +497,9 @@
               <input
                 class="form-input"
                 type="text"
+                id="contactName"
                 name="name"
                 placeholder="Your Name"
-                required="required"
               />
             </td>
           </tr>
@@ -561,9 +510,9 @@
               <input
                 class="form-input"
                 type="email"
+                id="contactEmail"
                 name="email"
                 placeholder="Your Email (e.g. krish@example.com)"
-                required="required"
               />
             </td>
           </tr>
@@ -574,9 +523,9 @@
               <input
                 class="form-input"
                 type="text"
+                id="contactSubject"
                 name="subject"
                 placeholder="Subject (e.g. Web Technology / Project Query)"
-                required="required"
               />
             </td>
           </tr>
@@ -586,10 +535,11 @@
             <td class="form-field">
               <textarea
                 class="form-textarea"
+                id="contactMessage"
+                name="message"
                 rows="6"
                 cols="40"
                 placeholder="Your Message"
-                required="required"
               ></textarea>
             </td>
           </tr>
@@ -612,14 +562,13 @@
     <br /><br />
     <hr class="section-divider" />
 
+    <!-- ===================== FOOTER ===================== -->
     <footer class="site-footer">
       <center>
         <h2 class="footer-title">Connect With Me</h2>
 
         <p class="footer-links">
-          <a class="footer-link" href="mailto:krishsavaliya018@gmail.com"
-            >Email</a
-          >
+          <a class="footer-link" href="mailto:krishsavaliya018@gmail.com">Email</a>
           |
           <a
             class="footer-link"
@@ -638,6 +587,7 @@
           <a
             class="footer-link"
             href="admin/index.html"
+            style="color: var(--primary-color); font-weight: 700;"
             >Admin Panel</a
           >
         </p>
@@ -652,9 +602,7 @@
       </center>
     </footer>
 
-    <!-- Centralized Portfolio Storage & Dynamic Hydration Layer -->
-    <script src="assets/js/portfolio-data.js"></script>
-    <script src="assets/js/portfolio-store.js"></script>
-    <script src="assets/js/portfolio.js"></script>
+    <!-- Public Client-Side JavaScript Form Validation -->
+    <script src="js/script.js"></script>
   </body>
 </html>
