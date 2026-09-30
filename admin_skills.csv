@@ -1,0 +1,16 @@
+Category,Skill,Tag
+Web Development,HTML5,Markup
+Web Development,CSS3,Styling
+Web Development,JavaScript,Frontend
+Web Development,TypeScript,Language
+Web Development,React.js,Library
+Web Development,Node.js,Backend
+AI & Machine Learning,Python,Core
+AI & Machine Learning,Scikit-learn,ML
+AI & Machine Learning,OpenCV,Computer Vision
+AI & Machine Learning,NumPy & Pandas,Data Analysis
+AI & Machine Learning,NLP,Language
+Tools & Workflow,Git & GitHub,Version Control
+Tools & Workflow,VS Code,IDE
+Tools & Workflow,Figma,UI Design
+Tools & Workflow,Linux,OS

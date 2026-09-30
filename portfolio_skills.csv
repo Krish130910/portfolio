@@ -1,0 +1,25 @@
+Category,Skill
+HTML5 & Structure,HTML5 Semantic Tags
+HTML5 & Structure,XHTML Strict Rules
+HTML5 & Structure,Form Validation Attributes
+HTML5 & Structure,Special Character Entities
+HTML5 & Structure,"HTML Multimedia (<video>, <audio>)"
+HTML5 & Structure,Iframes & DOCTYPE Standards
+CSS3 & Layout Mechanics,"CSS Variables (:root & var())"
+CSS3 & Layout Mechanics,Flexbox Layout Mechanics
+CSS3 & Layout Mechanics,CSS Grid System & fr Units
+CSS3 & Layout Mechanics,Box Model & Border Radius
+CSS3 & Layout Mechanics,"Positioning (Sticky, Relative, Absolute)"
+CSS3 & Layout Mechanics,Responsive Media Queries
+Visual Effects & Design,"2D & 3D Transforms (rotate, scale)"
+Visual Effects & Design,Transitions & Keyframe Animations
+Visual Effects & Design,Linear & Radial Gradients
+Visual Effects & Design,Box-Shadow & Text-Shadow
+Visual Effects & Design,Clip-Path Styling
+Visual Effects & Design,F-Pattern & User-Centric Design
+Web Protocols & Servers,"HTTP/1.1 & Request Methods (GET, POST)"
+Web Protocols & Servers,"HTTP Response Status Codes (2xx, 4xx, 5xx)"
+Web Protocols & Servers,Client-Server Architecture & DNS
+Web Protocols & Servers,Apache HTTP Server & NGINX
+Web Protocols & Servers,WAMP / XAMPP Stack Setup
+Web Protocols & Servers,Browser Developer Tools (Inspect Element)

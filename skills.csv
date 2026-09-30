@@ -1,0 +1,40 @@
+Source,Category,Skill,Tag
+Photo 1 (Portfolio),HTML5 & Structure,HTML5 Semantic Tags,
+Photo 1 (Portfolio),HTML5 & Structure,XHTML Strict Rules,
+Photo 1 (Portfolio),HTML5 & Structure,Form Validation Attributes,
+Photo 1 (Portfolio),HTML5 & Structure,Special Character Entities,
+Photo 1 (Portfolio),HTML5 & Structure,"HTML Multimedia (<video>, <audio>)",
+Photo 1 (Portfolio),HTML5 & Structure,Iframes & DOCTYPE Standards,
+Photo 1 (Portfolio),CSS3 & Layout Mechanics,"CSS Variables (:root & var())",
+Photo 1 (Portfolio),CSS3 & Layout Mechanics,Flexbox Layout Mechanics,
+Photo 1 (Portfolio),CSS3 & Layout Mechanics,CSS Grid System & fr Units,
+Photo 1 (Portfolio),CSS3 & Layout Mechanics,Box Model & Border Radius,
+Photo 1 (Portfolio),CSS3 & Layout Mechanics,"Positioning (Sticky, Relative, Absolute)",
+Photo 1 (Portfolio),CSS3 & Layout Mechanics,Responsive Media Queries,
+Photo 1 (Portfolio),Visual Effects & Design,"2D & 3D Transforms (rotate, scale)",
+Photo 1 (Portfolio),Visual Effects & Design,Transitions & Keyframe Animations,
+Photo 1 (Portfolio),Visual Effects & Design,Linear & Radial Gradients,
+Photo 1 (Portfolio),Visual Effects & Design,Box-Shadow & Text-Shadow,
+Photo 1 (Portfolio),Visual Effects & Design,Clip-Path Styling,
+Photo 1 (Portfolio),Visual Effects & Design,F-Pattern & User-Centric Design,
+Photo 1 (Portfolio),Web Protocols & Servers,"HTTP/1.1 & Request Methods (GET, POST)",
+Photo 1 (Portfolio),Web Protocols & Servers,"HTTP Response Status Codes (2xx, 4xx, 5xx)",
+Photo 1 (Portfolio),Web Protocols & Servers,Client-Server Architecture & DNS,
+Photo 1 (Portfolio),Web Protocols & Servers,Apache HTTP Server & NGINX,
+Photo 1 (Portfolio),Web Protocols & Servers,WAMP / XAMPP Stack Setup,
+Photo 1 (Portfolio),Web Protocols & Servers,Browser Developer Tools (Inspect Element),
+Photo 2 (Admin),Web Development,HTML5,Markup
+Photo 2 (Admin),Web Development,CSS3,Styling
+Photo 2 (Admin),Web Development,JavaScript,Frontend
+Photo 2 (Admin),Web Development,TypeScript,Language
+Photo 2 (Admin),Web Development,React.js,Library
+Photo 2 (Admin),Web Development,Node.js,Backend
+Photo 2 (Admin),AI & Machine Learning,Python,Core
+Photo 2 (Admin),AI & Machine Learning,Scikit-learn,ML
+Photo 2 (Admin),AI & Machine Learning,OpenCV,Computer Vision
+Photo 2 (Admin),AI & Machine Learning,NumPy & Pandas,Data Analysis
+Photo 2 (Admin),AI & Machine Learning,NLP,Language
+Photo 2 (Admin),Tools & Workflow,Git & GitHub,Version Control
+Photo 2 (Admin),Tools & Workflow,VS Code,IDE
+Photo 2 (Admin),Tools & Workflow,Figma,UI Design
+Photo 2 (Admin),Tools & Workflow,Linux,OS
